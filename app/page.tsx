@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import { WireOrb, VoiceWave } from '@/components/ThreeD';
+import { CinematicHero } from '@/components/ui/cinematic-landing-hero';
 import Reveal from '@/components/Reveal';
 import { PhoneCall, PenTool, Code, Rocket, MapPin, TrendingUp, Target, MessageCircle, Star, ArrowRight } from 'lucide-react';
 
@@ -68,43 +68,21 @@ function BlogCard({ tall = false }: { tall?: boolean }) {
 
 export default function HomePage() {
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh' }}>
       <Nav />
 
       {/* HERO */}
-      <section className="sp" style={{ 
-        position: 'relative', textAlign: 'center', overflow: 'hidden',
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,0.4) 0%, rgba(10,10,12,0.8) 70%, rgba(10,10,12,1) 100%), url(/hero_bg.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}>
-        <div style={{ position: 'absolute', top: 50, left: '50%', transform: 'translateX(-50%)', opacity: 0.2, pointerEvents: 'none' }}>
-          <WireOrb size={420} />
-        </div>
-        <div style={{ position: 'relative' }} className="fade-up">
-          <span className="wf-chip glass">v3.2 · launching now</span>
-          <h1 className="h-hand" style={{ fontSize: 'clamp(52px,8vw,86px)', lineHeight: 1, marginTop: 18 }}>
-            We build the <span className="hi">conversation</span><br />
-            layer of your business.
-          </h1>
-          <p style={{ maxWidth: 600, margin: '24px auto 0', color: 'var(--dim)', fontSize: 17, lineHeight: 1.6 }}>
-            Websites, SEO, web & WhatsApp chatbots, voice agents — done by one team, shipping every week.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 14, marginTop: 32, flexWrap: 'wrap' }}>
-            <Link href="/contact" className="wf-btn solid glass">Book a 20-min call</Link>
-            <Link href="#work" className="wf-btn glass">See our work <ArrowRight size={16} /></Link>
-          </div>
-        </div>
-        <div className="g4" style={{ marginTop: 64, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
-          {[['127', 'projects shipped'], ['41', 'voice agents live'], ['2.4M', 'msgs handled / mo'], ['SEA', 'team based']].map(([n, l]) => (
-            <div key={l}>
-              <div className="h-hand" style={{ fontSize: 44 }}>{n}</div>
-              <div className="lbl" style={{ marginTop: 4 }}>{l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <CinematicHero 
+        brandName="Emote Tech"
+        tagline1="We build the conversation"
+        tagline2="layer of your business."
+        cardHeading="Websites, SEO, web & WhatsApp chatbots"
+        cardDescription="Done by one team, shipping every week. We're based in SEA."
+        metricValue={127}
+        metricLabel="Projects Shipped"
+        ctaHeading="Got 20 minutes?"
+        ctaDescription="Tell us where you're stuck. We'll come back with one idea, three options, zero pitch decks."
+      />
 
       {/* SERVICES */}
       <section className="sp" style={{ 

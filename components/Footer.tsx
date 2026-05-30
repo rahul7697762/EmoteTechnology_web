@@ -3,7 +3,6 @@ import Link from 'next/link';
 const cols: [string, string[]][] = [
   ['Product',    ['Web', 'Chatbots', 'WhatsApp', 'Voice', 'SEO']],
   ['Company',    ['About', 'Team', 'Careers', 'Press']],
-  ['Resources',  ['Blog', 'Case studies', 'Docs', 'Status']],
   ['Connect',    ['Contact', 'LinkedIn', 'Twitter', 'YouTube']],
 ];
 
@@ -37,7 +36,7 @@ export default function Footer() {
         marginTop: 36, paddingTop: 18,
         borderTop: '1px solid rgba(255,255,255,.2)',
         display: 'flex', justifyContent: 'space-between', fontSize: 12, opacity: .7}}>
-        <span>© 2026 Dograh · Shivam Jaiswal</span>
+        <span>© {new Date().getFullYear()} Copyright reserved by Emote Technology</span>
         <span>Privacy · Terms · Cookies</span>
       </div>
     </footer>

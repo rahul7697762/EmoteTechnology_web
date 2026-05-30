@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { NavHeader } from '@/components/ui/nav-header';
 const links = ['Services', 'Pricing', 'Work', 'About', 'Blog'];
 const linkHrefs: Record<string, string> = {
   Services: '/services/whatsapp-chatbot',
@@ -18,7 +18,7 @@ export default function Nav() {
       style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '16px 48px',
-        position: 'sticky', top: 0, zIndex: 100}}
+        position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100}}
     >
       <div className="glass" style={{ position: 'absolute', inset: 0, zIndex: -1, borderRadius: 0, border: 'none', borderBottom: '1px solid var(--border-glass)', background: 'rgba(11, 15, 25, 0.85)' }} />
       {/* Logo */}
@@ -27,12 +27,8 @@ export default function Nav() {
       </Link>
 
       {/* Desktop links — hidden on mobile via .nav-links CSS class */}
-      <div className="nav-links" style={{ gap: 28, fontSize: 15 }}>
-        {links.map(t => (
-          <Link key={t} href={linkHrefs[t]} style={{ textDecoration: 'none', color: 'var(--text-main)' }}>
-            {t}
-          </Link>
-        ))}
+      <div className="nav-links">
+        <NavHeader />
       </div>
 
       {/* Right side: CTA + hamburger */}
