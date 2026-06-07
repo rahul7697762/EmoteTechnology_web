@@ -1,9 +1,11 @@
 import Link from 'next/link';
 
-const cols: [string, string[]][] = [
-  ['Product',    ['Web', 'Chatbots', 'WhatsApp', 'Voice', 'SEO']],
-  ['Company',    ['About', 'Team', 'Careers', 'Press']],
-  ['Connect',    ['Contact', 'LinkedIn', 'Twitter', 'YouTube']],
+type FooterItem = { name: string; href?: string };
+
+const cols: { heading: string; items: FooterItem[] }[] = [
+  { heading: 'Product', items: [{ name: 'Web', href: '/services/web' }, { name: 'Chatbots', href: '/services/web-chatbot' }, { name: 'WhatsApp', href: '/services/whatsapp-chatbot' }, { name: 'Voice', href: '/services/voice' }, { name: 'SEO', href: '/services/seo' }] },
+  { heading: 'Company', items: [{ name: 'About', href: '/about' }, { name: 'Team', href: '/about' }, { name: 'Careers', href: '/about' }] },
+  { heading: 'Connect', items: [{ name: 'Contact', href: '/contact' }, { name: 'LinkedIn', href: 'https://www.linkedin.com/company/emote-technology' }] },
 ];
 
 export default function Footer() {
@@ -22,11 +24,23 @@ export default function Footer() {
           </p>
         </div>
 
-        {cols.map(([heading, items]) => (
-          <div key={heading} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <span className="lbl" style={{ color: 'var(--hi)' }}>{heading}</span>
-            {items.map(item => (
-              <span key={item} style={{ fontSize: 14, opacity: .85 }}>{item}</span>
+        {cols.map((col) => (
+          <div key={col.heading} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <span className="lbl" style={{ color: 'var(--hi)' }}>{col.heading}</span>
+            {col.items.map(item => (
+              item.href ? (
+                <Link 
+                  key={item.name} 
+                  href={item.href} 
+                  target={item.href.startsWith('http') ? "_blank" : undefined}
+                  rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                  style={{ fontSize: 14, opacity: .85, textDecoration: 'none', color: 'inherit' }}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <span key={item.name} style={{ fontSize: 14, opacity: .85 }}>{item.name}</span>
+              )
             ))}
           </div>
         ))}

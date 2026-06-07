@@ -1,9 +1,66 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const BASE_URL = "https://emotetechnology.in";
+
+export const viewport: Viewport = {
+  themeColor: "#0A101D",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "emote. — Web, Chat & Voice Agency",
-  description: "We build the conversation layer of your business. Websites, SEO, web & WhatsApp chatbots, voice agents.",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Emote Technology — Web, Chat & Voice Agency",
+    template: "%s | Emote Technology",
+  },
+  description:
+    "We build the conversation layer of your business. Custom websites, local SEO, WhatsApp chatbots, AI voice agents, and Google & Meta Ads — all from one team in KL.",
+  keywords: [
+    "web development agency India",
+    "SEO agency India",
+    "WhatsApp chatbot agency",
+    "AI voice agent",
+    "Google Business Profile optimization",
+    "digital marketing agency KL",
+    "website development Zirakpur",
+  ],
+  authors: [{ name: "Emote Technology", url: BASE_URL }],
+  creator: "Emote Technology",
+  publisher: "Emote Technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: BASE_URL,
+    siteName: "Emote Technology",
+    title: "Emote Technology — Web, Chat & Voice Agency",
+    description:
+      "Custom websites, SEO, WhatsApp chatbots, and AI voice agents built by one team that ships.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Emote Technology",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Emote Technology — Web, Chat & Voice Agency",
+    description:
+      "Custom websites, SEO, WhatsApp chatbots, and AI voice agents built by one team that ships.",
+    images: ["/logo.png"],
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

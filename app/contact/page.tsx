@@ -8,7 +8,7 @@ import { Mail, MessageSquare, Phone, Calendar, ArrowRight, MapPin } from 'lucide
 import { cn } from '@/lib/utils';
 
 const channels = [
-  { id: 'email', label: 'Email', value: 'hello@emote.tech', icon: Mail, color: 'text-blue-400' },
+  { id: 'email', label: 'Email', value: 'info@emotetechnology.in', icon: Mail, color: 'text-blue-400' },
   { id: 'whatsapp', label: 'WhatsApp', value: '+60 1x xxxx xxxx', icon: MessageSquare, color: 'text-green-400' },
   { id: 'voice', label: 'Voice Agent', value: 'Try it now', icon: Phone, color: 'text-purple-400' },
   { id: 'calendly', label: 'Calendly', value: '20-min intro call', icon: Calendar, color: 'text-orange-400' },

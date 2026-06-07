@@ -66,9 +66,49 @@ function BlogCard({ tall = false }: { tall?: boolean }) {
   );
 }
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Emote Technology',
+  url: 'https://emotetechnology.in',
+  logo: 'https://emotetechnology.in/logo.png',
+  description:
+    'We build the conversation layer of your business. Websites, SEO, WhatsApp chatbots, and AI voice agents.',
+  foundingDate: '2019',
+  numberOfEmployees: { '@type': 'QuantitativeValue', value: 7 },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'DSS-15, Trishala City Road',
+    addressLocality: 'Zirakpur',
+    addressRegion: 'Punjab',
+    addressCountry: 'IN',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'info@emotetechnology.in',
+    contactType: 'customer support',
+  },
+  sameAs: ['https://emotetechnology.in'],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Emote Technology',
+  url: 'https://emotetechnology.in',
+};
+
 export default function HomePage() {
   return (
     <div style={{ minHeight: '100vh' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <Nav />
 
       {/* HERO */}
@@ -346,7 +386,7 @@ export default function HomePage() {
           </div>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link href="/contact" className="wf-btn solid glass">Book the call</Link>
-            <Link href="mailto:hello@emote.tech" className="wf-btn glass">Email us</Link>
+            <Link href="mailto:info@emotetechnology.in" className="wf-btn glass">Email us</Link>
           </div>
         </div>
         </Reveal>

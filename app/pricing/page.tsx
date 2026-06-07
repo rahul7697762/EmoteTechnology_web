@@ -1,7 +1,21 @@
+import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Pricing',
+  description:
+    'Transparent pricing for SEO & Google Business Profile, custom website development, and Google & Meta Ads management. Plans that scale with your business.',
+  openGraph: {
+    title: 'Pricing — Emote Technology',
+    description:
+      'Transparent, outcome-based pricing for web development, local SEO, and paid ads. No retainers without proof.',
+    url: 'https://emotetechnology.in/pricing',
+  },
+  alternates: { canonical: 'https://emotetechnology.in/pricing' },
+};
 
 export default function PricingPage() {
   return (

@@ -9,14 +9,9 @@ import { MapPin, Globe, Code, PenTool, Mic, Briefcase, Zap, ArrowRight } from 'l
 import { cn } from '@/lib/utils';
 
 const team = [
-  { role: 'Founder & Strategy', icon: Globe },
-  { role: 'Lead Engineer', icon: Code },
-  { role: 'Lead Designer', icon: PenTool },
-  { role: 'Voice / Conversational', icon: Mic },
-  { role: 'Content & SEO', icon: PenTool },
-  { role: 'Frontend Engineer', icon: Code },
-  { role: 'Ops & Delivery', icon: Briefcase },
-  { role: '+ a friendly cat', icon: Zap },
+  { name: 'Shivam', role: 'Director', icon: Briefcase },
+  { name: 'Kusam', role: 'SEO & Social Media Expert', icon: Globe },
+  { name: 'Rahul', role: 'Web Developer', icon: Code }
 ];
 
 const rules = [
@@ -95,13 +90,13 @@ export default function AboutPage() {
             The Actual Humans
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-12 drop-shadow-md">Meet the team.</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {team.map((member, i) => (
               <div key={i} className="p-6 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors flex flex-col items-center text-center group shadow-lg">
-                <div className="w-16 h-16 rounded-full bg-[#0A101D] border border-white/10 flex items-center justify-center mb-6 shadow-inner group-hover:border-blue-500/30 transition-colors">
-                  <member.icon className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors" />
+                <div className="w-20 h-20 rounded-full bg-[#0A101D] border border-white/10 flex items-center justify-center mb-6 shadow-inner group-hover:border-blue-500/30 transition-colors text-3xl font-bold text-blue-400">
+                  {member.name[0]}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">Human 0{i + 1}</h3>
+                <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
                 <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-blue-400">{member.role}</p>
               </div>
             ))}
@@ -156,8 +151,8 @@ export default function AboutPage() {
         <div className="text-center py-20 border-t border-white/10">
           <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Hiring? <span className="text-neutral-600">No.</span><br />Always reading? <span className="text-blue-400">Yes.</span></h2>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-10">Send a paragraph + a thing you've made. We reply to everyone.</p>
-          <Link href="mailto:jobs@emote.tech" className="inline-flex items-center gap-3 bg-white text-[#0A101D] px-8 py-4 rounded-xl font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-lg">
-            <span>jobs@emote.tech</span>
+          <Link href="mailto:hr@emotetechnology.in" className="inline-flex items-center gap-3 bg-white text-[#0A101D] px-8 py-4 rounded-xl font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-lg">
+            <span>hr@emotetechnology.in</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

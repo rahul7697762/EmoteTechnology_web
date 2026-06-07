@@ -5,29 +5,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import { Search, Clock, Calendar, ArrowRight, Mail } from 'lucide-react';
+import { Search, Clock, Calendar, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const tags = ['All', 'SEO', 'Voice AI', 'Chatbots', 'WhatsApp', 'Engineering', 'Behind the work'];
+import { blogPosts } from '@/lib/blogData';
 
-const posts = [
-  { title: 'How we rank local plumbers in 90 days', tag: 'SEO', mins: '5 min', date: "Mar '26", featured: true },
-  { title: 'Designing voice agents that don\'t sound like voice agents', tag: 'Voice AI', mins: '8 min', date: "Mar '26" },
-  { title: 'When NOT to build a chatbot', tag: 'Chatbots', mins: '4 min', date: "Feb '26" },
-  { title: 'WhatsApp WABA: the part nobody warns you about', tag: 'WhatsApp', mins: '6 min', date: "Feb '26" },
-  { title: 'Our internal LLM prompt template, annotated', tag: 'Engineering', mins: '7 min', date: "Jan '26" },
-  { title: 'What 127 projects taught us about scope', tag: 'Behind the work', mins: '5 min', date: "Jan '26" },
-  { title: 'Local SEO playbook for clinics, free', tag: 'SEO', mins: '12 min', date: "Dec '25" },
-];
+const tags = ['All', 'SEO', 'Voice AI', 'Chatbots', 'WhatsApp', 'Web Development'];
 
 export default function BlogPage() {
   const [activeTag, setActiveTag] = useState('All');
 
   const filteredPosts = activeTag === 'All' 
-    ? posts.filter(p => !p.featured) 
-    : posts.filter(p => p.tag === activeTag && !p.featured);
+    ? blogPosts.filter(p => !p.featured) 
+    : blogPosts.filter(p => p.tag === activeTag && !p.featured);
 
-  const featured = posts.find(p => p.featured);
+  const featured = blogPosts.find(p => p.featured);
 
   // Animation variants
   const containerVars = {
@@ -108,13 +100,8 @@ export default function BlogPage() {
             >
               <div className="group rounded-[2.5rem] border border-blue-500/20 bg-gradient-to-br from-blue-900/10 to-[#0A101D] overflow-hidden flex flex-col md:flex-row items-stretch shadow-2xl hover:border-blue-500/40 transition-colors">
                 <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-[#0A101D] border-b md:border-b-0 md:border-r border-white/10 overflow-hidden">
-                  {/* Abstract placeholder visual */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/20 to-transparent opacity-50 group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 flex flex-col gap-4 items-center justify-center opacity-20 rotate-[-15deg] scale-150">
-                    <div className="w-full h-8 bg-blue-500/30 blur-md rounded-full" />
-                    <div className="w-3/4 h-8 bg-purple-500/30 blur-md rounded-full" />
-                    <div className="w-1/2 h-8 bg-cyan-500/30 blur-md rounded-full" />
-                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={featured.image} alt={featured.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-6">
@@ -122,11 +109,12 @@ export default function BlogPage() {
                     <span className="px-3 py-1 rounded-full bg-white/5 text-neutral-400 text-xs font-bold uppercase tracking-widest border border-white/10">{featured.tag}</span>
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-md group-hover:text-blue-300 transition-colors">{featured.title}</h2>
+                  <p className="text-neutral-400 mb-8 line-clamp-3">{featured.excerpt}</p>
                   <div className="flex items-center gap-6 text-sm text-neutral-400 mb-8 font-medium">
                     <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {featured.mins}</span>
                     <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {featured.date}</span>
                   </div>
-                  <Link href="#" className="inline-flex items-center gap-3 bg-white text-[#0A101D] px-6 py-3 rounded-xl font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-lg self-start">
+                  <Link href={`/blog/${featured.slug}`} className="inline-flex items-center gap-3 bg-white text-[#0A101D] px-6 py-3 rounded-xl font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-lg self-start">
                     <span>Read Article</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -140,25 +128,29 @@ export default function BlogPage() {
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           <AnimatePresence>
             {filteredPosts.map((post, i) => (
-              <motion.div 
-                layout
-                initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.4 }}
-                key={post.title} 
-                className="group flex flex-col p-6 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors shadow-lg hover:shadow-xl hover:shadow-blue-900/10 hover:border-white/10 cursor-pointer"
-              >
-                <div className="w-full h-48 rounded-2xl bg-[#0A101D] border border-white/5 mb-6 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 rounded-full bg-white/5 text-blue-300 text-[10px] font-bold uppercase tracking-widest border border-white/10 group-hover:border-blue-500/30 transition-colors">{post.tag}</span>
-                </div>
-                <h3 className="text-xl font-bold leading-snug mb-4 group-hover:text-blue-300 transition-colors">{post.title}</h3>
-                
-                <div className="mt-auto pt-6 flex items-center justify-between text-xs text-neutral-500 font-medium border-t border-white/5 group-hover:border-white/10 transition-colors">
-                  <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.mins}</span>
-                  <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {post.date}</span>
-                </div>
-              </motion.div>
+              <Link key={post.slug} href={`/blog/${post.slug}`} passHref legacyBehavior>
+                <motion.a
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.4 }}
+                  className="group flex flex-col p-6 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors shadow-lg hover:shadow-xl hover:shadow-blue-900/10 hover:border-white/10 cursor-pointer"
+                >
+                  <div className="w-full h-48 rounded-2xl bg-[#0A101D] border border-white/5 mb-6 relative overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  </div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 rounded-full bg-white/5 text-blue-300 text-[10px] font-bold uppercase tracking-widest border border-white/10 group-hover:border-blue-500/30 transition-colors">{post.tag}</span>
+                  </div>
+                  <h3 className="text-xl font-bold leading-snug mb-2 group-hover:text-blue-300 transition-colors">{post.title}</h3>
+                  <p className="text-sm text-neutral-400 mb-4 line-clamp-2">{post.excerpt}</p>
+                  
+                  <div className="mt-auto pt-6 flex items-center justify-between text-xs text-neutral-500 font-medium border-t border-white/5 group-hover:border-white/10 transition-colors">
+                    <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.mins}</span>
+                    <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {post.date}</span>
+                  </div>
+                </motion.a>
+              </Link>
             ))}
           </AnimatePresence>
         </motion.div>
@@ -184,33 +176,7 @@ export default function BlogPage() {
           </button>
         </div>
 
-        {/* Newsletter */}
-        <div className="p-10 md:p-16 rounded-[3rem] border border-blue-500/20 bg-gradient-to-br from-[#0A101D] to-blue-900/20 backdrop-blur-2xl shadow-2xl overflow-hidden relative">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent opacity-50" />
-          
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
-                <Mail className="w-4 h-4" /> The Newsletter
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight drop-shadow-md">
-                One useful thing,<br />one Friday a month.
-              </h2>
-            </div>
-            
-            <div className="w-full max-w-md flex flex-col sm:flex-row gap-4">
-              <input 
-                type="email" 
-                placeholder="you@company.com" 
-                className="flex-grow px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all shadow-inner"
-              />
-              <button className="group relative flex items-center justify-center gap-2 bg-blue-500 text-white px-8 py-4 rounded-xl font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-                <span className="relative z-10">Subscribe</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </button>
-            </div>
-          </div>
-        </div>
+
 
       </main>
 
