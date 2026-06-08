@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Chatbot from "@/components/ui/web-chatbot";
 
 const BASE_URL = "https://emotetechnology.in";
 
@@ -25,6 +26,14 @@ export const metadata: Metadata = {
     "Google Business Profile optimization",
     "digital marketing agency KL",
     "website development Zirakpur",
+    "website development dehradun",
+    "AI voice agent development company",
+    "AI voice agent development company Bangalore",
+    "AI voice agent development company Mohali",
+    "Google Ad Agency Bangalore",
+    "Google Ad Agency Mohali",
+    "Google Ad Agency Dehradun"
+
   ],
   authors: [{ name: "Emote Technology", url: BASE_URL }],
   creator: "Emote Technology",
@@ -85,6 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </defs>
         </svg>
         {children}
+        <Chatbot />
       </body>
     </html>
   );
