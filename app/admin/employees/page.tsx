@@ -43,7 +43,7 @@ export default function AdminEmployeesPage() {
         orderBy("createdAt", "desc")
       );
       const snapshot = await getDocs(q);
-      setEmployees(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).filter(u => u.role === 'employee'));
+      setEmployees(snapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as any) })).filter((u: any) => u.role === 'employee'));
     } catch (error) {
       console.error("Error fetching employees", error);
     } finally {
