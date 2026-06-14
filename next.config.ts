@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  // Prevent Next.js from bundling firebase-admin — it must run as native Node.js
+  // to avoid ERR_REQUIRE_ESM errors from jose/jwks-rsa ESM-only modules
+  serverExternalPackages: ['firebase-admin', 'jwks-rsa', 'jose'],
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'emotetechnology.in' },
