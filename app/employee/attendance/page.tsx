@@ -2,20 +2,30 @@
 
 import { useState, useEffect } from "react";
 import { auth, db } from "@/lib/firebase";
-import { collection, query, where, getDocs, addDoc, updateDoc, doc, serverTimestamp, orderBy } from "firebase/firestore";
-import { Loader2, LogIn, LogOut, CheckCircle2 } from "lucide-react";
+import { collection, query, where, getDocs, addDoc, updateDoc, doc, getDoc, serverTimestamp, orderBy } from "firebase/firestore";
+import { Loader2, LogIn, LogOut, CheckCircle2, Ban } from "lucide-react";
 
 export default function AttendancePage() {
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState<"not_started" | "logged_in" | "completed">("not_started");
   const [attendanceId, setAttendanceId] = useState<string | null>(null);
   const [history, setHistory] = useState<any[]>([]);
+  const [isBlocked, setIsBlocked] = useState(false);
 
   useEffect(() => {
     const fetchAttendance = async () => {
       if (!auth.currentUser) return;
       
       try {
+        // Fetch user profile to check if attendance is blocked
+        const userDocRef = doc(db, "users", auth.currentUser.uid);
+        const userDocSnap = await getDoc(userDocRef);
+        if (userDocSnap.exists() && userDocSnap.data().attendanceBlocked) {
+          setIsBlocked(true);
+        } else {
+          setIsBlocked(false);
+        }
+
         const today = new Date().toISOString().split('T')[0];
         const q = query(
           collection(db, "attendance"),
@@ -114,7 +124,17 @@ export default function AttendancePage() {
 
       {/* Action Card */}
       <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 text-center flex flex-col items-center justify-center space-y-4">
-        {status === "not_started" && (
+        {isBlocked ? (
+          <>
+            <div className="bg-red-500/10 p-4 rounded-full">
+              <Ban className="w-12 h-12 text-red-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-red-400">Attendance Blocked</h3>
+            <p className="text-neutral-400 max-w-sm">Your ability to log attendance has been restricted. Please contact your administrator.</p>
+          </>
+        ) : (
+          <>
+            {status === "not_started" && (
           <>
             <div className="bg-blue-500/10 p-4 rounded-full">
               <LogIn className="w-12 h-12 text-blue-500" />
@@ -155,6 +175,8 @@ export default function AttendancePage() {
             </div>
             <h3 className="text-2xl font-bold">Attendance Completed</h3>
             <p className="text-neutral-400 max-w-sm">You have successfully logged your hours for today. See you tomorrow!</p>
+          </>
+        )}
           </>
         )}
       </div>

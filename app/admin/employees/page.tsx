@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "@/lib/firebase";
 import { collection, query, getDocs, orderBy, doc, updateDoc } from "firebase/firestore";
-import { UserPlus, Loader2, Mail, Lock, Building, CheckCircle2, KeyRound, Edit, Users } from "lucide-react";
+import { UserPlus, Loader2, Mail, Lock, Building, CheckCircle2, KeyRound, Edit, Users, Trash2, Ban } from "lucide-react";
 
 export default function AdminEmployeesPage() {
   const [activeTab, setActiveTab] = useState<"create" | "list">("list");
@@ -34,6 +34,9 @@ export default function AdminEmployeesPage() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editLoading, setEditLoading] = useState(false);
   const [editFormData, setEditFormData] = useState<any>({});
+
+  // Delete State
+  const [deleteLoading, setDeleteLoading] = useState<string | null>(null);
 
   const fetchEmployees = async () => {
     setEmployeesLoading(true);
@@ -167,6 +170,54 @@ export default function AdminEmployeesPage() {
       setErrorMsg(error.message);
     } finally {
       setEditLoading(false);
+    }
+  };
+
+  const handleToggleAttendanceBlock = async (emp: any) => {
+    try {
+      const docRef = doc(db, "users", emp.id);
+      await updateDoc(docRef, {
+        attendanceBlocked: !emp.attendanceBlocked
+      });
+      setSuccessMsg(`Successfully ${emp.attendanceBlocked ? "unblocked" : "blocked"} attendance for ${emp.name}.`);
+      fetchEmployees();
+    } catch (error: any) {
+      setErrorMsg(error.message);
+    }
+  };
+
+  const handleDelete = async (uid: string, name: string) => {
+    if (!auth.currentUser) return;
+    if (!window.confirm(`Are you sure you want to delete ${name}? This action cannot be undone.`)) return;
+
+    setDeleteLoading(uid);
+    setErrorMsg("");
+    setSuccessMsg("");
+
+    try {
+      const token = await auth.currentUser.getIdToken();
+      
+      const res = await fetch("/api/admin/delete-employee", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ uid })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to delete employee");
+      }
+
+      setSuccessMsg(`Successfully deleted ${name}.`);
+      fetchEmployees();
+    } catch (error: any) {
+      setErrorMsg(error.message);
+    } finally {
+      setDeleteLoading(null);
     }
   };
 
@@ -394,6 +445,25 @@ export default function AdminEmployeesPage() {
                           >
                             <KeyRound className="w-3.5 h-3.5 mr-1.5" />
                             Reset Password
+                          </button>
+                          <button 
+                            onClick={() => handleToggleAttendanceBlock(emp)}
+                            className={`inline-flex items-center px-2.5 py-1.5 bg-neutral-800 rounded-md text-xs font-medium transition-colors ${
+                              emp.attendanceBlocked 
+                                ? "text-emerald-400 hover:bg-emerald-900/40 hover:text-emerald-300" 
+                                : "text-amber-400 hover:bg-amber-900/40 hover:text-amber-300"
+                            }`}
+                          >
+                            <Ban className="w-3.5 h-3.5 mr-1.5" />
+                            {emp.attendanceBlocked ? "Unblock Attendance" : "Block Attendance"}
+                          </button>
+                          <button 
+                            onClick={() => handleDelete(emp.id, emp.name)}
+                            disabled={deleteLoading === emp.id}
+                            className="inline-flex items-center px-2.5 py-1.5 bg-neutral-800 hover:bg-red-900/40 text-red-400 hover:text-red-300 rounded-md text-xs font-medium transition-colors disabled:opacity-50"
+                          >
+                            {deleteLoading === emp.id ? <Loader2 className="w-3.5 h-3.5 mr-1.5 animate-spin" /> : <Trash2 className="w-3.5 h-3.5 mr-1.5" />}
+                            Delete
                           </button>
                         </td>
                       </tr>
