@@ -10,7 +10,8 @@ import {
   MessageSquareWarning, 
   LogOut,
   Menu,
-  X
+  X,
+  Globe
 } from "lucide-react";
 import { auth } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
@@ -21,6 +22,7 @@ const navigation = [
   { name: "All Attendance", href: "/admin/attendance", icon: Users },
   { name: "Manage Leaves", href: "/admin/leave", icon: FileText },
   { name: "Complaints", href: "/admin/complaints", icon: MessageSquareWarning },
+  { name: "Website Content", href: "/admin/website-content", icon: Globe },
 ];
 
 export default function AdminLayout({

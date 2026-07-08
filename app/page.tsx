@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { CinematicHero } from '@/components/ui/cinematic-landing-hero';
 import Reveal from '@/components/Reveal';
 import { PhoneCall, PenTool, Code, Rocket, MapPin, TrendingUp, Target, MessageCircle, Star, ArrowRight } from 'lucide-react';
+import { getWebsiteProjects, getWebsiteTestimonials, getWebsiteTeam } from '@/lib/websiteContent';
 
 const ServiceList = ['Web Development', 'Google Business Profile', 'SEO Setup', 'Google & Meta Ads', 'WhatsApp Campaigns'];
 const ServiceBlurbs: Record<string, string> = {
@@ -98,7 +99,12 @@ const websiteSchema = {
   url: 'https://emotetechnology.in',
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [projects, testimonials, team] = await Promise.all([
+    getWebsiteProjects(),
+    getWebsiteTestimonials(),
+    getWebsiteTeam(),
+  ]);
   return (
     <div style={{ minHeight: '100vh' }}>
       <script
@@ -201,50 +207,7 @@ export default function HomePage() {
         </div>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
-          {[
-            {
-              title: 'Dhareeni.in',
-              url: 'https://dhareeni.in',
-              img: '', // Placeholder
-              desc: 'An elegant e-commerce platform built for a premium clothing and lifestyle brand. Designed with a custom aesthetic, seamless product filtering, and a fully optimized checkout flow to drive conversions.',
-            },
-            {
-              title: 'E-Hotel Store',
-              url: 'http://ehotelstore.com',
-              img: 'https://emotetechnology.in/wp-content/uploads/2026/01/cropped-Energetic_Wordmark_Hotel_Store_Logo_1_-removebg-preview-300x135-1.webp',
-              desc: 'The eHotel Store is a modern, conversion-focused eCommerce platform crafted by Emote Technology for the hospitality industry. Designed for performance and aesthetics, the website enables hotels to seamlessly browse, select, and purchase premium hotel supplies with ease.',
-            },
-            {
-              title: 'Realstar Fire Components',
-              url: 'https://realstarfirecomponents.com/',
-              img: 'https://emotetechnology.in/wp-content/uploads/2026/01/cropped-real_star_logo-removebg-preview-100x100-1.webp',
-              desc: 'At Realstar Fire Components, we specialize in delivering high-quality, reliable, and certified fire safety solutions designed to protect lives, property, and infrastructure. Our products are engineered with precision, tested for performance, and built to meet the highest safety standards.',
-            },
-            {
-              title: 'World Travel Planners',
-              url: 'https://worldtravelplanner.in/',
-              img: 'https://emotetechnology.in/wp-content/uploads/2026/01/image-removebg-preview.png',
-              desc: 'At World Travel Planners, we turn travel dreams into perfectly planned journeys. From serene getaways to adventurous explorations, we curate personalized travel experiences that are seamless, memorable, and stress-free we handle every detail—so you can focus on enjoying the journey.',
-            },
-            {
-              title: 'Minimech',
-              url: 'https://minimech.ae/',
-              img: 'https://emotetechnology.in/wp-content/uploads/2026/01/cropped-Minimech-logo-300x82-removebg-preview.png',
-              desc: 'Minimech General Trading LLC is a trusted supplier of certified fire and life safety equipment with over a decade of industry expertise. We deliver high-quality, reliable fire protection solutions across the Gulf and Africa, helping businesses stay safe, compliant, and prepared.',
-            },
-            {
-              title: 'Maths Spark',
-              url: 'http://themathspark.co.uk',
-              img: 'https://emotetechnology.in/wp-content/uploads/2026/01/ChatGPT-Image-Jan-12-2026-04_57_47-PM-1.png',
-              desc: 'Maths Spark makes mathematics simple, engaging, and confidence-building for students of all levels. We focus on building strong conceptual clarity through well-structured lessons, step-by-step explanations, and smart problem-solving techniques that make learning maths easier and more enjoyable.',
-            },
-            {
-              title: 'Viva Hotels',
-              url: 'https://www.hotelsviva.com/en',
-              img: 'https://emotetechnology.in/wp-content/uploads/2026/01/vivalogo.png',
-              desc: 'Viva Hotels offers a perfect blend of comfort, elegance, and personalized hospitality. Designed for both business and leisure travelers, our hotels provide thoughtfully crafted rooms, modern amenities, and warm service to ensure a relaxing and memorable stay.',
-            }
-          ].map((item, i) => (
+          {projects.map((item, i) => (
             <div key={item.title} className="glass" style={{ padding: 32, display: 'flex', flexDirection: 'column', gap: 16 }}>
               {item.img ? (
                 <Link href={item.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 160, background: 'rgba(255,255,255,0.02)', padding: 16, borderRadius: 8 }}>
@@ -278,38 +241,8 @@ export default function HomePage() {
         </div>
         <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%', padding: '24px 0' }}>
           <div className="wf-marq-inner" style={{ animationDuration: '30s' }}>
-            {[
-              {
-                quote: "Emote Technology completely transformed our online presence. The new eHotel Store website is lightning fast, visually stunning, and has drastically improved our conversion rates.",
-                author: "Sanjay M.",
-                role: "Director, E-Hotel Store"
-              },
-              {
-                quote: "Their team delivered a highly professional and secure website that perfectly represents our certified fire safety solutions. We've seen a massive uptick in B2B inquiries across the Gulf.",
-                author: "Ahmad K.",
-                role: "Operations Head, Minimech"
-              },
-              {
-                quote: "The platform they built for Maths Spark is exactly what we needed. It is beautifully designed, reliable, and incredibly easy for students and parents to navigate.",
-                author: "David W.",
-                role: "Founder, Maths Spark"
-              },
-              {
-                quote: "Emote Technology completely transformed our online presence. The new eHotel Store website is lightning fast, visually stunning, and has drastically improved our conversion rates.",
-                author: "Sanjay M.",
-                role: "Director, E-Hotel Store"
-              },
-              {
-                quote: "Their team delivered a highly professional and secure website that perfectly represents our certified fire safety solutions. We've seen a massive uptick in B2B inquiries across the Gulf.",
-                author: "Ahmad K.",
-                role: "Operations Head, Minimech"
-              },
-              {
-                quote: "The platform they built for Maths Spark is exactly what we needed. It is beautifully designed, reliable, and incredibly easy for students and parents to navigate.",
-                author: "David W.",
-                role: "Founder, Maths Spark"
-              }
-            ].map((t, i) => (
+            {/* Double the array so the marquee loops seamlessly */}
+            {[...testimonials, ...testimonials].map((t, i) => (
               <TestimonialCard 
                 key={i}
                 rotate={i % 2 === 0 ? -1.2 : 1.4} 
@@ -334,15 +267,15 @@ export default function HomePage() {
           <h2 className="h-hand" style={{ fontSize: 44, lineHeight: 1.05 }}>The humans behind it.</h2>
         </div>
         <div style={{ display: 'flex', gap: 48, alignItems: 'flex-start', overflowX: 'auto', paddingBottom: 8 }}>
-          {[
-            { name: 'Shivam', role: 'Director' },
-            { name: 'Kusam', role: 'SEO & Social Media Expert' },
-            { name: 'Rahul', role: 'Web Developer' }
-          ].map((person) => (
-            <div key={person.name} style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center', minWidth: 120 }}>
-              <div className="wf-avatar glass" style={{ width: 100, height: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, fontWeight: 'bold', color: 'var(--hi)' }}>
-                {person.name[0]}
-              </div>
+          {team.map((person) => (
+            <div key={person.id} style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center', minWidth: 120 }}>
+              {person.img ? (
+                <img src={person.img} alt={person.name} style={{ width: 100, height: 100, borderRadius: '50%', objectFit: 'cover' }} />
+              ) : (
+                <div className="wf-avatar glass" style={{ width: 100, height: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, fontWeight: 'bold', color: 'var(--hi)' }}>
+                  {person.name[0]}
+                </div>
+              )}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
                 <div className="h-hand" style={{ fontSize: 22, color: 'var(--text-main)' }}>{person.name}</div>
                 <div style={{ fontSize: 13, color: 'var(--dim)', textAlign: 'center', maxWidth: 140 }}>{person.role}</div>

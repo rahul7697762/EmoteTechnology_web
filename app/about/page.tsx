@@ -10,8 +10,7 @@ import { cn } from '@/lib/utils';
 
 const team = [
   { name: 'Shivam', role: 'Director', icon: Briefcase },
-  { name: 'Kusam', role: 'SEO & Social Media Expert', icon: Globe },
-  { name: 'Rahul', role: 'Web Developer', icon: Code }
+  { name: 'Kusam', role: 'SEO & Social Media Expert', icon: Globe }
 ];
 
 const rules = [
