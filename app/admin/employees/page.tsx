@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "@/lib/firebase";
 import { collection, query, getDocs, orderBy, doc, updateDoc } from "firebase/firestore";
-import { UserPlus, Loader2, Mail, Lock, Building, CheckCircle2, KeyRound, Edit, Users, Trash2, Ban } from "lucide-react";
+import { UserPlus, Loader2, Mail, Lock, Building, CheckCircle2, KeyRound, Edit, Users, Trash2, Ban, Upload, IdCard } from "lucide-react";
 
 export default function AdminEmployeesPage() {
   const [activeTab, setActiveTab] = useState<"create" | "list">("list");
@@ -37,6 +37,13 @@ export default function AdminEmployeesPage() {
 
   // Delete State
   const [deleteLoading, setDeleteLoading] = useState<string | null>(null);
+
+  // Upload ID Card State
+  const [uploadModalOpen, setUploadModalOpen] = useState(false);
+  const [uploadUid, setUploadUid] = useState("");
+  const [uploadName, setUploadName] = useState("");
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploadLoading, setUploadLoading] = useState(false);
 
   const fetchEmployees = async () => {
     setEmployeesLoading(true);
@@ -139,6 +146,54 @@ export default function AdminEmployeesPage() {
     }
   };
 
+  const openUploadModal = (uid: string, name: string) => {
+    setUploadUid(uid);
+    setUploadName(name);
+    setUploadFile(null);
+    setUploadModalOpen(true);
+    setErrorMsg("");
+    setSuccessMsg("");
+  };
+
+  const handleUploadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!auth.currentUser || !uploadFile) return;
+
+    setUploadLoading(true);
+    setErrorMsg("");
+    setSuccessMsg("");
+
+    try {
+      const token = await auth.currentUser.getIdToken();
+      
+      const formData = new FormData();
+      formData.append("uid", uploadUid);
+      formData.append("file", uploadFile);
+
+      const res = await fetch("/api/admin/upload-id-card", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
+        body: formData
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to upload ID card");
+      }
+
+      setSuccessMsg(`ID card successfully uploaded for ${uploadName}!`);
+      setUploadModalOpen(false);
+      fetchEmployees();
+    } catch (error: any) {
+      setErrorMsg(error.message);
+    } finally {
+      setUploadLoading(false);
+    }
+  };
+
   const openEditModal = (emp: any) => {
     setEditFormData({ ...emp });
     setEditModalOpen(true);
@@ -228,14 +283,14 @@ export default function AdminEmployeesPage() {
         <p className="text-neutral-400 mt-2">Provision new employee accounts and manage access.</p>
       </div>
 
-      {successMsg && !resetModalOpen && !editModalOpen && (
+      {successMsg && !resetModalOpen && !editModalOpen && !uploadModalOpen && (
         <div className="p-4 bg-emerald-500/10 border border-emerald-500/50 rounded-lg flex items-center text-sm text-emerald-500">
           <CheckCircle2 className="w-5 h-5 mr-3 flex-shrink-0" />
           {successMsg}
         </div>
       )}
       
-      {errorMsg && !resetModalOpen && !editModalOpen && (
+      {errorMsg && !resetModalOpen && !editModalOpen && !uploadModalOpen && (
         <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-sm text-red-500">
           {errorMsg}
         </div>
@@ -432,6 +487,23 @@ export default function AdminEmployeesPage() {
                         </td>
                         <td className="p-4 text-neutral-400">{emp.manager || "N/A"}</td>
                         <td className="p-4 text-right space-x-2">
+                          {emp.idCardUrl && (
+                            <a 
+                              href={emp.idCardUrl} 
+                              target="_blank" 
+                              rel="noreferrer"
+                              className="inline-flex items-center px-2.5 py-1.5 bg-neutral-800 hover:bg-neutral-700 rounded-md text-xs font-medium text-blue-400 transition-colors"
+                            >
+                              View ID
+                            </a>
+                          )}
+                          <button 
+                            onClick={() => openUploadModal(emp.id, emp.name)}
+                            className="inline-flex items-center px-2.5 py-1.5 bg-neutral-800 hover:bg-neutral-700 rounded-md text-xs font-medium text-neutral-300 transition-colors"
+                          >
+                            <IdCard className="w-3.5 h-3.5 mr-1.5" />
+                            {emp.idCardUrl ? "Update ID" : "Upload ID"}
+                          </button>
                           <button 
                             onClick={() => openEditModal(emp)}
                             className="inline-flex items-center px-2.5 py-1.5 bg-neutral-800 hover:bg-neutral-700 rounded-md text-xs font-medium text-neutral-300 transition-colors"
@@ -615,6 +687,57 @@ export default function AdminEmployeesPage() {
                   className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition-colors flex justify-center items-center disabled:opacity-50"
                 >
                   {resetLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Save Password"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Upload ID Card Modal */}
+      {uploadModalOpen && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 w-full max-w-md shadow-xl">
+            <h3 className="text-xl font-bold mb-2">Upload ID Card</h3>
+            <p className="text-neutral-400 text-sm mb-6">Select a file for <span className="text-white font-medium">{uploadName}</span>.</p>
+            
+            {errorMsg && uploadModalOpen && (
+              <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-sm text-red-500">
+                {errorMsg}
+              </div>
+            )}
+
+            <form onSubmit={handleUploadSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-neutral-300 mb-1">ID Card File</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Upload className="h-4 w-4 text-neutral-500" />
+                  </div>
+                  <input 
+                    type="file" 
+                    required
+                    accept="image/*,.pdf"
+                    onChange={(e) => setUploadFile(e.target.files?.[0] || null)}
+                    className="w-full pl-9 bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-neutral-300 focus:ring-2 focus:ring-blue-500 outline-none file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700"
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-3 mt-6">
+                <button
+                  type="button"
+                  onClick={() => setUploadModalOpen(false)}
+                  className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-2.5 rounded-lg transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={uploadLoading || !uploadFile}
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition-colors flex justify-center items-center disabled:opacity-50"
+                >
+                  {uploadLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Upload File"}
                 </button>
               </div>
             </form>

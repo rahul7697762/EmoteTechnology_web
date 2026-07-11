@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth as adminAuth, db } from "@/lib/firebase-admin";
+import { uploadToBunny } from "@/lib/bunny";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,42 +18,37 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid token" }, { status: 401 });
     }
 
-    // Check admin role
     const callerDoc = await db.collection("users").doc(decodedToken.uid).get();
     if (!callerDoc.exists || callerDoc.data()?.role !== "admin") {
       return NextResponse.json({ error: "Forbidden: Admins only" }, { status: 403 });
     }
 
-    // 2. Parse request body
-    let body;
-    try {
-      const text = await req.text();
-      if (!text) {
-        return NextResponse.json({ error: "Empty request body" }, { status: 400 });
-      }
-      body = JSON.parse(text);
-    } catch (e) {
-      return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
-    }
-    const { uid, newPassword } = body;
+    // 2. Parse form data
+    const formData = await req.formData();
+    const file = formData.get("file") as File | null;
+    const uid = formData.get("uid") as string | null;
 
-    if (!uid || !newPassword) {
-      return NextResponse.json({ error: "Missing required fields (uid, newPassword)" }, { status: 400 });
+    if (!file || !uid) {
+      return NextResponse.json({ error: "Missing required fields (file, uid)" }, { status: 400 });
     }
 
-    if (newPassword.length < 6) {
-      return NextResponse.json({ error: "Password must be at least 6 characters" }, { status: 400 });
-    }
+    // 3. Upload file to Bunny Storage
+    const buffer = Buffer.from(await file.arrayBuffer());
+    // Create a unique filename
+    const ext = file.name.split('.').pop();
+    const fileName = `id-cards/${uid}-${Date.now()}.${ext}`;
 
-    // 3. Update the user's password in Firebase Auth
-    await adminAuth.updateUser(uid, {
-      password: newPassword,
+    const fileUrl = await uploadToBunny(buffer, fileName);
+
+    // 4. Update the user's document in Firestore
+    await db.collection("users").doc(uid).update({
+      idCardUrl: fileUrl,
     });
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ success: true, url: fileUrl }, { status: 200 });
 
   } catch (error: any) {
-    console.error("Error resetting password:", error);
+    console.error("Error uploading ID card:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

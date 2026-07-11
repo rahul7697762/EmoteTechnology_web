@@ -33,10 +33,28 @@ export default function IdCardPage() {
     return () => unsubscribe();
   }, []);
 
-  const handleDownload = () => {
-    // In a real scenario, this could trigger a PDF generation or download an image
+  const handleDownload = async () => {
     if (profile?.idCardUrl) {
-      window.open(profile.idCardUrl, "_blank");
+      try {
+        const response = await fetch(profile.idCardUrl);
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        
+        // Extract extension from URL or default to jpg
+        const extMatch = profile.idCardUrl.match(/\.([^.]+)$/);
+        const ext = extMatch ? extMatch[1] : 'jpg';
+        
+        a.download = `ID_Card_${profile.name?.replace(/\s+/g, '_') || 'Employee'}.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+      } catch (e) {
+        console.error("Download failed (possibly CORS), falling back to new tab", e);
+        window.open(profile.idCardUrl, "_blank");
+      }
     } else {
       alert("ID Card image not available to download. Please contact administration.");
     }
@@ -63,46 +81,54 @@ export default function IdCardPage() {
       </div>
 
       <div className="flex justify-center py-12">
-        {/* ID Card Component */}
-        <div className="relative w-80 h-[30rem] bg-gradient-to-br from-blue-900 via-neutral-900 to-indigo-950 rounded-2xl border border-neutral-700 shadow-2xl overflow-hidden flex flex-col items-center pt-8 pb-6 px-6">
-          
-          {/* Logo / Company Name placeholder */}
-          <div className="w-full flex justify-center mb-6">
-            <div className="text-xl font-black tracking-widest text-white flex items-center gap-2">
-              <div className="w-6 h-6 bg-blue-500 rounded-sm transform rotate-45"></div>
-              EMOTE
+        {profile?.idCardUrl ? (
+          <img 
+            src={profile.idCardUrl} 
+            alt="Official Company ID Card" 
+            className="w-auto h-auto max-w-full max-h-[35rem] rounded-xl shadow-2xl border border-neutral-700 object-contain"
+          />
+        ) : (
+          /* Digital ID Card Component Fallback */
+          <div className="relative w-80 h-[30rem] bg-gradient-to-br from-blue-900 via-neutral-900 to-indigo-950 rounded-2xl border border-neutral-700 shadow-2xl overflow-hidden flex flex-col items-center pt-8 pb-6 px-6">
+            
+            {/* Logo / Company Name placeholder */}
+            <div className="w-full flex justify-center mb-6">
+              <div className="text-xl font-black tracking-widest text-white flex items-center gap-2">
+                <div className="w-6 h-6 bg-blue-500 rounded-sm transform rotate-45"></div>
+                EMOTE
+              </div>
+            </div>
+
+            {/* Photo */}
+            <div className="w-32 h-32 bg-neutral-800 rounded-xl mb-4 border-4 border-neutral-800 overflow-hidden shadow-inner">
+              {profile?.profilePic ? (
+                <img src={profile.profilePic} alt="Profile" className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-neutral-800">
+                  <User className="w-12 h-12 text-neutral-600" />
+                </div>
+              )}
+            </div>
+
+            {/* Details */}
+            <div className="text-center w-full space-y-1 mb-8 flex-1">
+              <h3 className="text-xl font-bold text-white uppercase tracking-wider">{profile?.name || "Employee Name"}</h3>
+              <p className="text-blue-400 text-sm font-medium uppercase tracking-widest">{profile?.department || "Department"}</p>
+              <p className="text-neutral-500 text-xs mt-2">ID: EMP-{auth.currentUser?.uid?.substring(0, 6).toUpperCase() || "000000"}</p>
+            </div>
+
+            {/* Barcode placeholder */}
+            <div className="w-full h-12 bg-white/10 rounded flex items-center justify-center p-2 mb-2">
+               <div className="w-full h-full border-x-4 border-white/20" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #fff, #fff 2px, transparent 2px, transparent 6px, #fff 6px, #fff 10px, transparent 10px, transparent 12px)' }}></div>
+            </div>
+            <div className="text-[10px] text-neutral-500 tracking-widest">{auth.currentUser?.uid?.toUpperCase() || "BARCODE"}</div>
+
+            {/* Hologram/Security feature */}
+            <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center overflow-hidden mix-blend-screen opacity-50">
+               <div className="w-full h-full bg-gradient-to-tr from-transparent via-blue-500/30 to-purple-500/30"></div>
             </div>
           </div>
-
-          {/* Photo */}
-          <div className="w-32 h-32 bg-neutral-800 rounded-xl mb-4 border-4 border-neutral-800 overflow-hidden shadow-inner">
-            {profile?.profilePic ? (
-              <img src={profile.profilePic} alt="Profile" className="w-full h-full object-cover" />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-neutral-800">
-                <User className="w-12 h-12 text-neutral-600" />
-              </div>
-            )}
-          </div>
-
-          {/* Details */}
-          <div className="text-center w-full space-y-1 mb-8 flex-1">
-            <h3 className="text-xl font-bold text-white uppercase tracking-wider">{profile?.name || "Employee Name"}</h3>
-            <p className="text-blue-400 text-sm font-medium uppercase tracking-widest">{profile?.department || "Department"}</p>
-            <p className="text-neutral-500 text-xs mt-2">ID: EMP-{auth.currentUser?.uid?.substring(0, 6).toUpperCase() || "000000"}</p>
-          </div>
-
-          {/* Barcode placeholder */}
-          <div className="w-full h-12 bg-white/10 rounded flex items-center justify-center p-2 mb-2">
-             <div className="w-full h-full border-x-4 border-white/20" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #fff, #fff 2px, transparent 2px, transparent 6px, #fff 6px, #fff 10px, transparent 10px, transparent 12px)' }}></div>
-          </div>
-          <div className="text-[10px] text-neutral-500 tracking-widest">{auth.currentUser?.uid?.toUpperCase() || "BARCODE"}</div>
-
-          {/* Hologram/Security feature */}
-          <div className="absolute top-4 right-4 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center overflow-hidden mix-blend-screen opacity-50">
-             <div className="w-full h-full bg-gradient-to-tr from-transparent via-blue-500/30 to-purple-500/30"></div>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
