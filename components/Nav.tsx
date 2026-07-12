@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { NavHeader } from '@/components/ui/nav-header';
+import ThemeToggle from '@/components/ThemeToggle';
 import { Home, Layers, CreditCard, Briefcase, Info } from 'lucide-react';
 
 export default function Nav() {
@@ -12,7 +13,7 @@ export default function Nav() {
           padding: '16px 48px',
           position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100}}
       >
-        <div className="glass" style={{ position: 'absolute', inset: 0, zIndex: -1, borderRadius: 0, border: 'none', borderBottom: '1px solid var(--border-glass)', background: 'rgba(11, 15, 25, 0.85)' }} />
+        <div className="glass" style={{ position: 'absolute', inset: 0, zIndex: -1, borderRadius: 0, border: 'none', borderBottom: '1px solid rgba(255,255,255,0.15)', background: 'rgba(11, 15, 25, 0.85)' }} />
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', color: 'inherit', background: 'rgba(255, 255, 255, 0.95)', padding: '6px 16px', borderRadius: 999, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
           <img src="/logo.png" alt="emote logo" style={{ height: 28, width: 'auto' }} />
@@ -25,6 +26,7 @@ export default function Nav() {
 
         {/* Right side: CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <ThemeToggle />
           <Link href="/contact" className="wf-btn solid glass" style={{ fontSize: 13 }}>
             Get a quote
           </Link>
@@ -53,6 +55,7 @@ export default function Nav() {
           <Info size={22} />
           <span className="text-[10px] uppercase font-bold tracking-wider" style={{ fontFamily: 'Times New Roman' }}>About</span>
         </Link>
+        <ThemeToggle variant="mobile" />
       </div>
     </header>
   );

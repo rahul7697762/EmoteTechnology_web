@@ -3,6 +3,8 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { CinematicHero } from '@/components/ui/cinematic-landing-hero';
 import Reveal from '@/components/Reveal';
+import TiltCard from '@/components/TiltCard';
+import { WireCube, WireOrb, SerpCards, ChatBubbles } from '@/components/ThreeD';
 import { PhoneCall, PenTool, Code, Rocket, MapPin, TrendingUp, Target, MessageCircle, Star, ArrowRight } from 'lucide-react';
 import { getWebsiteProjects, getWebsiteTestimonials, getWebsiteTeam } from '@/lib/websiteContent';
 
@@ -117,8 +119,9 @@ export default async function HomePage() {
       />
       <Nav />
 
-      {/* HERO */}
-      <CinematicHero 
+      {/* HERO — always dark, independent of the site's light/dark toggle */}
+      <CinematicHero
+        className="bg-[#0b0f19]"
         brandName="Emote Tech"
         tagline1="We build the conversation"
         tagline2="layer of your business."
@@ -131,20 +134,26 @@ export default async function HomePage() {
       />
 
       {/* SERVICES */}
-      <section className="sp" style={{ 
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,1) 0%, rgba(10,10,12,0.4) 50%, rgba(10,10,12,1) 100%), url(/services_bg.png)',
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' 
+      <section className="sp" style={{
+        position: 'relative', overflow: 'hidden'
       }}>
+        <div className="decor-3d" style={{ top: 10, right: 24 }}>
+          <WireCube size={170} />
+        </div>
         <Reveal>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32, position: 'relative', zIndex: 1 }}>
           <span className="wf-section-label glass">01 · services</span>
           <h2 className="h-hand" style={{ fontSize: 44, lineHeight: 1.05 }}>One team. Five surfaces.</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 18 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 18, position: 'relative', zIndex: 1 }}>
           {ServiceList.map((s, i) => (
-            <div key={s} className="glass" style={{ padding: 20,
-              display: 'flex', flexDirection: 'column', gap: 14, minHeight: 240,
-              background: i === 0 ? 'rgba(0,240,255,0.1)' : ''}}>
+            <TiltCard
+              key={s}
+              className={`glass${i === 0 ? ' bento-first' : ''}`}
+              style={{ padding: 20,
+                display: 'flex', flexDirection: 'column', gap: 14, minHeight: 240,
+                background: i === 0 ? 'rgba(0,240,255,0.1)' : ''}}
+            >
               <div className="h-hand" style={{ fontSize: 28, color: 'var(--hi)' }}>
                 {(() => {
                   const Icon = ServiceIcons[s];
@@ -156,31 +165,32 @@ export default async function HomePage() {
               <Link href="/pricing" style={{ marginTop: 'auto', fontSize: 13, textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: 4 }}>
                 Learn more <ArrowRight size={14} />
               </Link>
-            </div>
+            </TiltCard>
           ))}
         </div>
         </Reveal>
       </section>
 
       {/* PROCESS */}
-      <section className="glass sp" style={{ 
-        color: 'var(--text-main)',
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,1) 0%, rgba(10,10,12,0.6) 50%, rgba(10,10,12,1) 100%), url(/process_bg.png)',
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed'
+      <section className="glass sp" style={{
+        position: 'relative', overflow: 'hidden', color: 'var(--text-main)'
       }}>
+        <div className="decor-3d" style={{ top: -20, right: -10 }}>
+          <WireOrb size={220} />
+        </div>
         <Reveal>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32, position: 'relative', zIndex: 1 }}>
           <span className="wf-section-label" style={{ color: 'rgba(255,255,255,.7)', borderColor: 'rgba(255,255,255,.3)' }}>02 · process</span>
           <h2 className="h-hand fade-up" style={{ fontSize: 44, lineHeight: 1.05 }}>From kickoff to live in 4 weeks.</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24, position: 'relative', zIndex: 1 }}>
           {[
             { title: 'Discovery call', desc: 'We align on your goals, requirements, and timeline to build the right foundation.', icon: PhoneCall },
             { title: 'Sketch & spec', desc: 'Wireframing, UX/UI design, and system architecture mapping.', icon: PenTool },
             { title: 'Build & integrate', desc: 'Development, third-party integrations, and rigorous testing.', icon: Code },
             { title: 'Launch & iterate', desc: 'Deployment, monitoring, and continuous optimization based on user data.', icon: Rocket }
           ].map((step, i) => (
-            <div key={step.title} className="fade-up" style={{ display: 'flex', flexDirection: 'column', gap: 12, animationDelay: `${i * 0.15}s` }}>
+            <TiltCard key={step.title} max={6} className="fade-up" style={{ display: 'flex', flexDirection: 'column', gap: 12, animationDelay: `${i * 0.15}s`, padding: 8, borderRadius: 16 }}>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
                 <span className="h-hand wf-pulse" style={{ fontSize: 56, color: 'var(--hi)', animationDelay: `${i * 0.4}s` }}>{`0${i + 1}`}</span>
                 <span className="lbl" style={{ color: 'rgba(255,255,255,.7)' }}>week {i + 1}</span>
@@ -188,27 +198,29 @@ export default async function HomePage() {
               </div>
               <div className="h-hand" style={{ fontSize: 24, color: 'var(--text-main)' }}>{step.title}</div>
               <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.5 }}>{step.desc}</p>
-            </div>
+            </TiltCard>
           ))}
         </div>
         </Reveal>
       </section>
 
       {/* PORTFOLIO / OUR WORK */}
-      <section id="work" className="sp" style={{ 
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,1) 0%, rgba(10,10,12,0.4) 50%, rgba(10,10,12,1) 100%), url(/portfolio_bg.png)',
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' 
+      <section id="work" className="sp" style={{
+        position: 'relative', overflow: 'hidden'
       }}>
+        <div className="decor-3d" style={{ top: 0, right: 10 }}>
+          <SerpCards width={300} height={240} />
+        </div>
         <Reveal>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32, position: 'relative', zIndex: 1 }}>
           <span className="wf-section-label glass">03 · our work</span>
           <h2 className="h-hand" style={{ fontSize: 44, lineHeight: 1.05 }}>Featured Projects.</h2>
           <p style={{ maxWidth: 540, color: 'var(--dim)', fontSize: 16 }}>A selection of brands we've helped scale online.</p>
         </div>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
-          {projects.map((item, i) => (
-            <div key={item.title} className="glass" style={{ padding: 32, display: 'flex', flexDirection: 'column', gap: 16 }}>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, position: 'relative', zIndex: 1 }}>
+          {projects.map((item) => (
+            <TiltCard key={item.title} className="glass" style={{ padding: 32, display: 'flex', flexDirection: 'column', gap: 16 }}>
               {item.img ? (
                 <Link href={item.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 160, background: 'rgba(255,255,255,0.02)', padding: 16, borderRadius: 8 }}>
                   <img src={item.img} alt={item.title} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
@@ -222,24 +234,25 @@ export default async function HomePage() {
                 {item.title}
               </Link>
               <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.6, flex: 1 }}>{item.desc}</p>
-            </div>
+            </TiltCard>
           ))}
         </div>
         </Reveal>
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="sp-sm" style={{ 
-        overflow: 'hidden',
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,1) 0%, rgba(10,10,12,0.4) 50%, rgba(10,10,12,1) 100%), url(/testimonials_bg.png)',
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' 
+      <section className="sp-sm" style={{
+        position: 'relative', overflow: 'hidden'
       }}>
+        <div className="decor-3d" style={{ top: 0, left: 24 }}>
+          <ChatBubbles width={280} height={220} />
+        </div>
         <Reveal>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32, padding: '0 48px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32, padding: '0 48px', position: 'relative', zIndex: 1 }}>
           <span className="wf-section-label glass">05 · words</span>
           <h2 className="h-hand" style={{ fontSize: 44, lineHeight: 1.05 }}>What clients say.</h2>
         </div>
-        <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%', padding: '24px 0' }}>
+        <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%', padding: '24px 0', position: 'relative', zIndex: 1 }}>
           <div className="wf-marq-inner" style={{ animationDuration: '30s' }}>
             {/* Double the array so the marquee loops seamlessly */}
             {[...testimonials, ...testimonials].map((t, i) => (
@@ -257,10 +270,7 @@ export default async function HomePage() {
       </section>
 
       {/* TEAM */}
-      <section className="sp-sm" style={{ 
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,1) 0%, rgba(10,10,12,0.4) 50%, rgba(10,10,12,1) 100%), url(/team_bg.png)',
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' 
-      }}>
+      <section className="sp-sm">
         <Reveal>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
           <span className="wf-section-label glass">06 · team</span>
@@ -268,7 +278,7 @@ export default async function HomePage() {
         </div>
         <div style={{ display: 'flex', gap: 48, alignItems: 'flex-start', overflowX: 'auto', paddingBottom: 8 }}>
           {team.map((person) => (
-            <div key={person.id} style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center', minWidth: 120 }}>
+            <TiltCard key={person.id} max={12} style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center', minWidth: 120 }}>
               {person.img ? (
                 <img src={person.img} alt={person.name} style={{ width: 100, height: 100, borderRadius: '50%', objectFit: 'cover' }} />
               ) : (
@@ -280,17 +290,14 @@ export default async function HomePage() {
                 <div className="h-hand" style={{ fontSize: 22, color: 'var(--text-main)' }}>{person.name}</div>
                 <div style={{ fontSize: 13, color: 'var(--dim)', textAlign: 'center', maxWidth: 140 }}>{person.role}</div>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
         </Reveal>
       </section>
 
       {/* BLOG */}
-      <section className="sp-sm" style={{ 
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,1) 0%, rgba(10,10,12,0.4) 50%, rgba(10,10,12,1) 100%), url(/blog_bg.png)',
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' 
-      }}>
+      <section className="sp-sm">
         <Reveal>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
           <span className="wf-section-label glass">07 · journal</span>
@@ -303,14 +310,16 @@ export default async function HomePage() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="glass cta-banner" style={{ 
-        padding: '80px 48px', 
-        backgroundImage: 'linear-gradient(to bottom, rgba(10,10,12,0.6) 0%, rgba(10,10,12,1) 100%), url(/cta_bg.png)',
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed',
-        borderTop: '1px solid var(--border-glass)' 
+      <section className="glass cta-banner" style={{
+        position: 'relative', overflow: 'hidden',
+        padding: '80px 48px',
+        borderTop: '1px solid var(--border-glass)'
       }}>
+        <div className="decor-3d" style={{ bottom: -60, right: -30, opacity: 0.22 }}>
+          <WireOrb size={280} />
+        </div>
         <Reveal>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div>
             <div className="h-hand" style={{ fontSize: 'clamp(40px,5vw,64px)', lineHeight: 1 }}>Got 20 minutes?</div>
             <p style={{ marginTop: 12, fontSize: 16, maxWidth: 480, lineHeight: 1.6 }}>

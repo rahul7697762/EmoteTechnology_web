@@ -32,9 +32,9 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#050914] text-white relative overflow-hidden font-sans pt-24">
+    <div className="min-h-screen flex flex-col bg-[var(--page-bg)] text-[var(--text-main)] relative overflow-hidden font-sans pt-24">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-[#050914] to-[#050914]" />
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-[var(--page-bg)] to-[var(--page-bg)]" />
       <div className="absolute inset-0 z-0 opacity-5 pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"noiseFilter\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"3\" stitchTiles=\"stitch\"/></filter><rect width=\"100%\" height=\"100%\" filter=\"url(%23noiseFilter)\"/></svg>')" }} />
 
       <Nav />
@@ -52,7 +52,7 @@ export default function BlogPage() {
             <motion.h1 variants={itemVars} className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-8 drop-shadow-lg">
               Field notes<br />from the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">build.</span>
             </motion.h1>
-            <motion.p variants={itemVars} className="text-lg md:text-xl text-neutral-400 max-w-xl leading-relaxed">
+            <motion.p variants={itemVars} className="text-lg md:text-xl text-[var(--dim)] max-w-xl leading-relaxed">
               Half playbooks, half post-mortems. Written by the people who shipped the thing.
             </motion.p>
           </motion.div>
@@ -61,32 +61,32 @@ export default function BlogPage() {
         {/* Filter Bar */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16 p-4 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl shadow-lg"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16 p-4 rounded-3xl border border-[var(--border-glass)] bg-[var(--bg-glass)] backdrop-blur-xl shadow-lg"
         >
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 mr-2 px-2">Filter</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--dim2)] mr-2 px-2">Filter</span>
             {tags.map((t) => (
-              <button 
+              <button
                 key={t}
                 onClick={() => setActiveTag(t)}
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border",
-                  activeTag === t 
-                    ? "bg-blue-500/20 border-blue-500/50 text-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.2)]" 
-                    : "bg-transparent border-transparent text-neutral-400 hover:bg-white/5 hover:text-white"
+                  activeTag === t
+                    ? "bg-blue-500/20 border-blue-500/50 text-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.2)]"
+                    : "bg-transparent border-transparent text-[var(--dim)] hover:bg-[var(--bg-glass)] hover:text-[var(--text-main)]"
                 )}
               >
                 {t}
               </button>
             ))}
           </div>
-          
+
           <div className="relative w-full md:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-            <input 
-              type="text" 
-              placeholder="Search posts..." 
-              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all shadow-inner"
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--dim2)]" />
+            <input
+              type="text"
+              placeholder="Search posts..."
+              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-[var(--bg-glass)] border border-[var(--border-glass)] text-sm text-[var(--text-main)] placeholder-[var(--dim2)] focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all shadow-inner"
             />
           </div>
         </motion.div>
@@ -98,23 +98,23 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, height: 0, margin: 0 }} transition={{ duration: 0.5 }}
               className="mb-20"
             >
-              <div className="group rounded-[2.5rem] border border-blue-500/20 bg-gradient-to-br from-blue-900/10 to-[#0A101D] overflow-hidden flex flex-col md:flex-row items-stretch shadow-2xl hover:border-blue-500/40 transition-colors">
-                <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-[#0A101D] border-b md:border-b-0 md:border-r border-white/10 overflow-hidden">
+              <div className="group rounded-[2.5rem] border border-blue-500/20 bg-gradient-to-br from-blue-900/10 to-[var(--panel-bg)] overflow-hidden flex flex-col md:flex-row items-stretch shadow-2xl hover:border-blue-500/40 transition-colors">
+                <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-[var(--panel-bg)] border-b md:border-b-0 md:border-r border-[var(--border-glass)] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={featured.image} alt={featured.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-6">
                     <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest border border-blue-500/30">Featured</span>
-                    <span className="px-3 py-1 rounded-full bg-white/5 text-neutral-400 text-xs font-bold uppercase tracking-widest border border-white/10">{featured.tag}</span>
+                    <span className="px-3 py-1 rounded-full bg-[var(--bg-glass)] text-[var(--dim)] text-xs font-bold uppercase tracking-widest border border-[var(--border-glass)]">{featured.tag}</span>
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-md group-hover:text-blue-300 transition-colors">{featured.title}</h2>
-                  <p className="text-neutral-400 mb-8 line-clamp-3">{featured.excerpt}</p>
-                  <div className="flex items-center gap-6 text-sm text-neutral-400 mb-8 font-medium">
+                  <p className="text-[var(--dim)] mb-8 line-clamp-3">{featured.excerpt}</p>
+                  <div className="flex items-center gap-6 text-sm text-[var(--dim)] mb-8 font-medium">
                     <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {featured.mins}</span>
                     <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {featured.date}</span>
                   </div>
-                  <Link href={`/blog/${featured.slug}`} className="inline-flex items-center gap-3 bg-white text-[#0A101D] px-6 py-3 rounded-xl font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-lg self-start">
+                  <Link href={`/blog/${featured.slug}`} className="inline-flex items-center gap-3 bg-[var(--text-main)] text-[var(--page-bg)] px-6 py-3 rounded-xl font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-lg self-start">
                     <span>Read Article</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -132,20 +132,20 @@ export default function BlogPage() {
                 <motion.a
                   layout
                   initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.4 }}
-                  className="group flex flex-col p-6 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors shadow-lg hover:shadow-xl hover:shadow-blue-900/10 hover:border-white/10 cursor-pointer"
+                  className="group flex flex-col p-6 rounded-[2rem] border border-[var(--border-glass)] bg-[var(--bg-glass)] hover:bg-[var(--bg-glass-heavy)] transition-colors shadow-lg hover:shadow-xl hover:shadow-blue-900/10 cursor-pointer"
                 >
-                  <div className="w-full h-48 rounded-2xl bg-[#0A101D] border border-white/5 mb-6 relative overflow-hidden">
+                  <div className="w-full h-48 rounded-2xl bg-[var(--panel-bg)] border border-[var(--border-glass)] mb-6 relative overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   </div>
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-white/5 text-blue-300 text-[10px] font-bold uppercase tracking-widest border border-white/10 group-hover:border-blue-500/30 transition-colors">{post.tag}</span>
+                    <span className="px-3 py-1 rounded-full bg-[var(--bg-glass)] text-blue-300 text-[10px] font-bold uppercase tracking-widest border border-[var(--border-glass)] group-hover:border-blue-500/30 transition-colors">{post.tag}</span>
                   </div>
                   <h3 className="text-xl font-bold leading-snug mb-2 group-hover:text-blue-300 transition-colors">{post.title}</h3>
-                  <p className="text-sm text-neutral-400 mb-4 line-clamp-2">{post.excerpt}</p>
-                  
-                  <div className="mt-auto pt-6 flex items-center justify-between text-xs text-neutral-500 font-medium border-t border-white/5 group-hover:border-white/10 transition-colors">
+                  <p className="text-sm text-[var(--dim)] mb-4 line-clamp-2">{post.excerpt}</p>
+
+                  <div className="mt-auto pt-6 flex items-center justify-between text-xs text-[var(--dim2)] font-medium border-t border-[var(--border-glass)] transition-colors">
                     <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.mins}</span>
                     <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {post.date}</span>
                   </div>
@@ -157,21 +157,21 @@ export default function BlogPage() {
 
         {/* Pagination */}
         <div className="flex items-center justify-center gap-2 mb-32">
-          <button className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 text-neutral-400 hover:bg-white/10 hover:text-white transition-colors mr-2">
+          <button className="w-10 h-10 rounded-full flex items-center justify-center border border-[var(--border-glass)] bg-[var(--bg-glass)] text-[var(--dim)] hover:bg-[var(--bg-glass-heavy)] hover:text-[var(--text-main)] transition-colors mr-2">
             &larr;
           </button>
           {[1, 2, 3, '...', 8].map((p, i) => (
             <button key={i} className={cn(
               "w-10 h-10 rounded-full flex items-center justify-center font-medium transition-colors border",
-              p === 1 
-                ? "bg-blue-500 text-white border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)]" 
-                : "bg-white/5 border-white/10 text-neutral-400 hover:bg-white/10 hover:text-white",
-              p === '...' && "bg-transparent border-transparent cursor-default hover:bg-transparent hover:text-neutral-400"
+              p === 1
+                ? "bg-blue-500 text-white border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                : "bg-[var(--bg-glass)] border-[var(--border-glass)] text-[var(--dim)] hover:bg-[var(--bg-glass-heavy)] hover:text-[var(--text-main)]",
+              p === '...' && "bg-transparent border-transparent cursor-default hover:bg-transparent hover:text-[var(--dim)]"
             )}>
               {p}
             </button>
           ))}
-          <button className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 text-neutral-400 hover:bg-white/10 hover:text-white transition-colors ml-2">
+          <button className="w-10 h-10 rounded-full flex items-center justify-center border border-[var(--border-glass)] bg-[var(--bg-glass)] text-[var(--dim)] hover:bg-[var(--bg-glass-heavy)] hover:text-[var(--text-main)] transition-colors ml-2">
             &rarr;
           </button>
         </div>

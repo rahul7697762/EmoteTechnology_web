@@ -10,12 +10,12 @@ const cols: { heading: string; items: FooterItem[] }[] = [
 
 export default function Footer() {
   return (
-    <footer style={{ padding: '48px 48px 32px', background: 'rgba(255, 255, 255, 0.02)', borderTop: '1px solid var(--border-glass)', color: 'rgba(255,255,255,0.8)' }}
+    <footer style={{ padding: '48px 48px 32px', background: 'var(--bg-glass)', borderTop: '1px solid var(--border-glass)', color: 'var(--dim)' }}
       className="footer-outer">
       <div className="g-footer">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <img src="/logo.png" alt="emote logo" style={{ height: 36, width: 'auto', filter: 'brightness(0) invert(1)' }} />
+            <img src="/logo.png" alt="emote logo" style={{ height: 36, width: 'auto', filter: 'var(--logo-filter)' }} />
           </div>
           <p style={{ marginTop: 14, fontSize: 14, maxWidth: 280, opacity: .8, lineHeight: 1.6 }}>
             DSS-15, Trishala City road, Behind Gopal sweets, Zirakpur, Punjab, 140603.
@@ -48,7 +48,7 @@ export default function Footer() {
 
       <div style={{
         marginTop: 36, paddingTop: 18,
-        borderTop: '1px solid rgba(255,255,255,.2)',
+        borderTop: '1px solid var(--border-glass)',
         display: 'flex', justifyContent: 'space-between', fontSize: 12, opacity: .7}}>
         <span>© {new Date().getFullYear()} Copyright reserved by Emote Technology</span>
         <span>Privacy · Terms · Cookies</span>
