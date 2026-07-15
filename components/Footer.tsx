@@ -3,7 +3,7 @@ import Link from 'next/link';
 type FooterItem = { name: string; href?: string };
 
 const cols: { heading: string; items: FooterItem[] }[] = [
-  { heading: 'Product', items: [{ name: 'Web', href: '/services/web' }, { name: 'Chatbots', href: '/services/web-chatbot' }, { name: 'WhatsApp', href: '/services/whatsapp-chatbot' }, { name: 'Voice', href: '/services/voice' }, { name: 'SEO', href: '/services/seo' }] },
+  { heading: 'Product', items: [{ name: 'Web', href: '/services/web' }, { name: 'Chatbots', href: '/services/web-chatbot' }, { name: 'WhatsApp', href: '/services/whatsapp-chatbot' }, { name: 'Voice', href: '/services/voice' }, { name: 'SEO', href: '/services/seo' }, { name: 'Social Media', href: '/services/social-media' }, { name: 'Paid Ads', href: '/services/paid-ads' }] },
   { heading: 'Company', items: [{ name: 'About', href: '/about' }, { name: 'Team', href: '/about' }, { name: 'Careers', href: '/about' }] },
   { heading: 'Connect', items: [{ name: 'Contact', href: '/contact' }, { name: 'LinkedIn', href: 'https://www.linkedin.com/company/emote-technology' }] },
 ];

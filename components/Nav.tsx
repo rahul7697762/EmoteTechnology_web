@@ -39,7 +39,7 @@ export default function Nav() {
           <Home size={22} />
           <span className="text-[10px] uppercase font-bold tracking-wider" style={{ fontFamily: 'Times New Roman' }}>Home</span>
         </Link>
-        <Link href="/services/whatsapp-chatbot" className="flex flex-col items-center gap-1.5 text-white/70 hover:text-white transition-colors">
+        <Link href="/services" className="flex flex-col items-center gap-1.5 text-white/70 hover:text-white transition-colors">
           <Layers size={22} />
           <span className="text-[10px] uppercase font-bold tracking-wider" style={{ fontFamily: 'Times New Roman' }}>Services</span>
         </Link>

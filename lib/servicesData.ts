@@ -73,6 +73,38 @@ export const servicesData: Record<string, ServiceData> = {
     keywords:
       'AI voice agent India, automated receptionist, AI phone answering service, voice AI agent for business, call automation India',
   },
+  'social-media': {
+    title: 'Social Media Management',
+    subtitle: 'Brand Presence',
+    desc: 'Stay top of mind without lifting a finger. We plan, design, and publish scroll-stopping content across Instagram, Facebook, and LinkedIn — and engage your audience daily.',
+    metrics: [['30+', 'Posts / Month'], ['24h', 'Reply Time'], ['3x', 'Engagement Lift']],
+    scope: [
+      ['Content Calendar', 'Monthly strategy, themes, and posting schedule.'],
+      ['Creative Design', 'On-brand reels, carousels, and static posts.'],
+      ['Community Management', 'Comments, DMs, and reviews handled daily.'],
+      ['Growth Reports', 'Monthly analytics on reach, followers, and engagement.'],
+    ],
+    seoDescription:
+      'Emote Technology manages your social media end-to-end — content strategy, creative design, daily engagement, and growth reporting across Instagram, Facebook, and LinkedIn.',
+    keywords:
+      'social media management agency India, Instagram management, social media marketing Zirakpur, content creation agency, SMM services India',
+  },
+  'paid-ads': {
+    title: 'Paid Ads That Convert',
+    subtitle: 'Performance Marketing',
+    desc: 'Stop burning budget on boosted posts. We run full-funnel Google and Meta ad campaigns engineered for one thing: measurable return on every rupee spent.',
+    metrics: [['4x', 'Avg. ROAS'], ['48h', 'Launch Time'], ['100%', 'Transparent Spend']],
+    scope: [
+      ['Campaign Strategy', 'Audience research, offer positioning, and funnel mapping.'],
+      ['Google & Meta Ads', 'Search, display, Instagram, and Facebook campaigns.'],
+      ['Creative Testing', 'A/B tested ad copy, creatives, and landing pages.'],
+      ['Weekly Optimization', 'Bid tuning, budget shifts, and performance reports.'],
+    ],
+    seoDescription:
+      'Emote Technology runs high-ROAS Google and Meta ad campaigns — strategy, creatives, A/B testing, and weekly optimization with fully transparent spend.',
+    keywords:
+      'paid ads agency India, Google Ads management, Meta ads agency, performance marketing Zirakpur, PPC agency India, Facebook ads management',
+  },
   'web-chatbot': {
     title: 'Web Chatbots',
     subtitle: 'Site Assistants',

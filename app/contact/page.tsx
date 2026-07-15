@@ -9,12 +9,12 @@ import { cn } from '@/lib/utils';
 
 const channels = [
   { id: 'email', label: 'Email', value: 'info@emotetechnology.in', icon: Mail, color: 'text-blue-400' },
-  { id: 'whatsapp', label: 'WhatsApp', value: '+60 1x xxxx xxxx', icon: MessageSquare, color: 'text-green-400' },
+  { id: 'whatsapp', label: 'WhatsApp', value: '+91 7061029937', icon: MessageSquare, color: 'text-green-400' },
   { id: 'voice', label: 'Voice Agent', value: 'Try it now', icon: Phone, color: 'text-purple-400' },
   { id: 'calendly', label: 'Calendly', value: '20-min intro call', icon: Calendar, color: 'text-orange-400' },
 ];
 
-const services = ['Web Development', 'SEO', 'Web Chatbot', 'WhatsApp Bots', 'Voice Agents', 'Other'];
+const services = ['Web Development', 'SEO', 'Web Chatbot', 'WhatsApp Bots', 'Voice Agents', 'Social Media Management', 'Paid Ads', 'Other'];
 
 export default function ContactPage() {
   const [selected, setSelected] = useState<string[]>(['WhatsApp Bots']);
@@ -46,9 +46,9 @@ export default function ContactPage() {
 
       <main className="flex-grow container mx-auto px-6 py-12 lg:py-20 relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          
+
           {/* Left Column: Text & Channels */}
-          <motion.div 
+          <motion.div
             variants={containerVars} initial="hidden" animate="show"
             className="flex flex-col gap-10"
           >
@@ -70,7 +70,7 @@ export default function ContactPage() {
 
             <motion.div variants={itemVars} className="grid sm:grid-cols-2 gap-4 mt-4">
               {channels.map((channel) => (
-                <div 
+                <div
                   key={channel.id}
                   className="group relative flex flex-col p-6 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-xl shadow-lg hover:shadow-2xl hover:shadow-blue-900/20"
                 >
@@ -87,23 +87,23 @@ export default function ContactPage() {
                 <MapPin className="w-6 h-6 text-blue-400 drop-shadow-md" />
               </div>
               <div>
-                <div className="text-base font-semibold text-white mb-1 tracking-tight">Office · Bangsar, KL</div>
-                <div className="text-sm">Mon–Fri · 10:00 AM – 6:00 PM MYT</div>
+                <div className="text-base font-semibold text-white mb-1 tracking-tight">Office · DSS-15, Trishala City Road, Behind Gopal Sweets, Zirakpur, Punjab 140603</div>
+                <div className="text-sm">Mon–Fri · 10:00 AM – 6:00 PM IST</div>
               </div>
             </motion.div>
           </motion.div>
 
           {/* Right Column: Premium Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="relative mt-8 lg:mt-0"
           >
             {/* Soft glow behind form */}
             <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-[2.5rem] blur-2xl opacity-50 pointer-events-none" />
-            
+
             <div className="relative p-8 md:p-10 rounded-[2.5rem] border border-white/10 bg-[#0A101D]/80 backdrop-blur-2xl shadow-2xl">
               <h3 className="text-2xl font-bold mb-8 text-white tracking-tight drop-shadow-md">Project Inquiry</h3>
-              
+
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -130,8 +130,8 @@ export default function ContactPage() {
                         onClick={() => toggle(s)}
                         className={cn(
                           "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border",
-                          selected.includes(s) 
-                            ? "bg-blue-500/20 border-blue-500/50 text-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.2)] scale-[1.02]" 
+                          selected.includes(s)
+                            ? "bg-blue-500/20 border-blue-500/50 text-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.2)] scale-[1.02]"
                             : "bg-white/5 border-white/10 text-neutral-400 hover:bg-white/10 hover:text-white"
                         )}
                       >
@@ -143,10 +143,10 @@ export default function ContactPage() {
 
                 <div className="space-y-2 pt-2">
                   <label className="text-[11px] font-bold uppercase tracking-widest text-neutral-400">Project Details</label>
-                  <textarea 
-                    placeholder="Tell us a bit about your current situation and what you're looking to achieve..." 
+                  <textarea
+                    placeholder="Tell us a bit about your current situation and what you're looking to achieve..."
                     rows={4}
-                    className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all resize-none shadow-inner" 
+                    className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all resize-none shadow-inner"
                   />
                 </div>
 
