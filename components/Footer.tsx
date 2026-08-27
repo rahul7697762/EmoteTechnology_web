@@ -6,6 +6,7 @@ const cols: { heading: string; items: FooterItem[] }[] = [
   { heading: 'Product', items: [{ name: 'Web', href: '/services/web' }, { name: 'Chatbots', href: '/services/web-chatbot' }, { name: 'WhatsApp', href: '/services/whatsapp-chatbot' }, { name: 'Voice', href: '/services/voice' }, { name: 'SEO', href: '/services/seo' }, { name: 'Social Media', href: '/services/social-media' }, { name: 'Paid Ads', href: '/services/paid-ads' }] },
   { heading: 'Company', items: [{ name: 'About', href: '/about' }, { name: 'Team', href: '/about' }, { name: 'Careers', href: '/about' }] },
   { heading: 'Connect', items: [{ name: 'Contact', href: '/contact' }, { name: 'LinkedIn', href: 'https://www.linkedin.com/company/emote-technology' }] },
+  { heading: 'Legal', items: [{ name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Terms of Service', href: '/terms-of-service' }, { name: 'Data Deletion', href: '/data-deletion' }] },
 ];
 
 export default function Footer() {
@@ -51,7 +52,13 @@ export default function Footer() {
         borderTop: '1px solid var(--border-glass)',
         display: 'flex', justifyContent: 'space-between', fontSize: 12, opacity: .7}}>
         <span>© {new Date().getFullYear()} Copyright reserved by Emote Technology</span>
-        <span>Privacy · Terms · Cookies</span>
+        <span style={{ display: 'flex', gap: 8 }}>
+          <Link href="/privacy-policy" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy</Link>
+          <span>·</span>
+          <Link href="/terms-of-service" style={{ color: 'inherit', textDecoration: 'none' }}>Terms</Link>
+          <span>·</span>
+          <Link href="/data-deletion" style={{ color: 'inherit', textDecoration: 'none' }}>Data Deletion</Link>
+        </span>
       </div>
     </footer>
   );
