@@ -10,6 +10,17 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'emotetechnology.in' },
     ],
   },
+  // Serves the self-contained WhatsApp Business Automation page (public/*.html)
+  // at its canonical extensionless URL. Array-form rewrites resolve after the
+  // filesystem/public check, so the .html file is found first.
+  async rewrites() {
+    return [
+      {
+        source: '/whatsapp-business-automation',
+        destination: '/whatsapp-business-automation.html',
+      },
+    ];
+  },
   async headers() {
     return [
       {

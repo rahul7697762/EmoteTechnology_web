@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Business Automation Solutions | Emote Technology</title>
+  <meta name="description" content="Emote Technology provides WhatsApp Business automation solutions for customer support, notifications, lead communication and business messaging." />
+  <meta name="author" content="Emote Technology" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://emotetechnology.in/whatsapp-business-automation" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WhatsApp Business Automation Solutions | Emote Technology" />
+  <meta property="og:description" content="Emote Technology provides WhatsApp Business automation solutions for customer support, notifications, lead communication and business messaging." />
+  <meta property="og:url" content="https://emotetechnology.in/whatsapp-business-automation" />
+  <meta property="og:site_name" content="Emote Technology" />
+  <meta property="og:image" content="https://emotetechnology.in/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Emote Technology - WhatsApp Business Automation" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WhatsApp Business Automation Solutions | Emote Technology" />
+  <meta name="twitter:description" content="Emote Technology provides WhatsApp Business automation solutions for customer support, notifications, lead communication and business messaging." />
+  <meta name="twitter:image" content="https://emotetechnology.in/logo.png" />
+  <meta name="theme-color" content="#0A101D" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"WhatsApp Business Automation Solutions | Emote Technology","url":"https://emotetechnology.in/whatsapp-business-automation","description":"Emote Technology provides WhatsApp Business automation solutions for customer support, notifications, lead communication and business messaging.","isPartOf":{"@type":"WebSite","name":"Emote Technology","url":"https://emotetechnology.in"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Emote Technology","url":"https://emotetechnology.in","logo":"https://emotetechnology.in/logo.png","description":"Emote Technology provides technology solutions including WhatsApp Business automation and chatbot services for businesses.","address":{"@type":"PostalAddress","streetAddress":"Channu Wala Road","addressLocality":"Bagha Purana","addressRegion":"Punjab","postalCode":"142038","addressCountry":"IN"},"contactPoint":{"@type":"ContactPoint","email":"info@emotetechnology.in","contactType":"customer support"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"WhatsApp Business Automation","provider":{"@type":"Organization","name":"Emote Technology","url":"https://emotetechnology.in"},"description":"Technology and automation services that help businesses manage WhatsApp-based customer communication, chatbots, notifications and workflow automation.","areaServed":"IN","serviceType":"WhatsApp Business Automation"}
+  </script>
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --bg-base:        #0b0f19;
+      --bg-surface:     #0d1320;
+      --bg-card:        #111827;
+      --bg-card-hover:  #162032;
+      --navy-deep:      #162C6D;
+      --blue-primary:   #3B82F6;
+      --blue-light:     #60A5FA;
+      --green-wa:       #25D366;
+      --green-wa-deep:  #128C7E;
+      --text-primary:   #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted:     #64748B;
+      --border-glass:   rgba(255,255,255,0.08);
+      --border-subtle:  rgba(255,255,255,0.05);
+      --glass-bg:       rgba(255,255,255,0.04);
+      --glass-bg-hover: rgba(255,255,255,0.07);
+      --radius-card:    20px;
+      --radius-pill:    999px;
+      --font-main:      'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono:      'JetBrains Mono', monospace;
+    }
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+    .section-header { display: flex; flex-direction: column; gap: 16px; margin-bottom: 56px; }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .label-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted); padding: 6px 14px;
+      border: 1px solid var(--border-glass); border-radius: var(--radius-pill);
+      background: var(--glass-bg); width: fit-content;
+    }
+    .label-tag.green {
+      color: var(--green-wa);
+      border-color: rgba(37,211,102,0.25);
+      background: rgba(37,211,102,0.06);
+    }
+    .section-heading {
+      font-size: clamp(2rem,5vw,3rem); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary);
+    }
+    .section-subtext {
+      font-size: 1.0625rem; color: var(--text-secondary);
+      line-height: 1.7; max-width: 680px;
+    }
+    .section-divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg,var(--green-wa),var(--blue-primary));
+      border-radius: var(--radius-pill); margin-bottom: 20px;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 14px 28px; border-radius: var(--radius-pill);
+      font-size: 0.9375rem; font-weight: 600; cursor: pointer;
+      border: none; transition: all 0.3s cubic-bezier(0.25,1,0.5,1);
+      text-decoration: none; white-space: nowrap; font-family: var(--font-main);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg,#25D366 0%,#128C7E 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3),0 1px 0 rgba(255,255,255,0.1) inset;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.4); }
+    .btn-primary:focus-visible { outline: 2px solid var(--green-wa); outline-offset: 3px; }
+    .btn-secondary {
+      background: var(--glass-bg); color: var(--text-primary);
+      border: 1px solid var(--border-glass); backdrop-filter: blur(12px);
+    }
+    .btn-secondary:hover { background: var(--glass-bg-hover); border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+    .btn-secondary:focus-visible { outline: 2px solid var(--blue-primary); outline-offset: 3px; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(11,15,25,0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px; max-width: 1180px; margin: 0 auto;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { height: 30px; width: auto; }
+    .nav-logo-text { font-size: 1.0625rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+    .nav-links-desktop {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass);
+      border-radius: var(--radius-pill); padding: 4px;
+      backdrop-filter: blur(12px);
+    }
+    .nav-links-desktop a {
+      padding: 8px 16px; border-radius: var(--radius-pill);
+      font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary);
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-links-desktop a:hover,
+    .nav-links-desktop a.active {
+      background: rgba(255,255,255,0.08); color: var(--text-primary);
+    }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s ease; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 4px; padding: 16px 24px;
+      background: rgba(11,15,25,0.98); border-bottom: 1px solid var(--border-glass);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 12px 16px; font-size: 0.9375rem; font-weight: 500;
+      color: var(--text-secondary); border-radius: 12px; transition: all 0.2s ease;
+    }
+    .mobile-menu a:hover { background: var(--glass-bg); color: var(--text-primary); }
+
+    /* skip link */
+    .skip-link {
+      position: absolute; top: -100%; left: 16px;
+      padding: 8px 16px; background: var(--blue-primary); color: #fff;
+      border-radius: 8px; font-weight: 700; z-index: 9999; transition: top 0.2s;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding: 120px 0 80px;
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(to right,rgba(255,255,255,0.03) 1px,transparent 1px),
+        linear-gradient(to bottom,rgba(255,255,255,0.03) 1px,transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at 50% 40%,black 0%,transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 40%,black 0%,transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute; width: 700px; height: 700px; border-radius: 50%;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      background: radial-gradient(circle,rgba(37,211,102,0.08) 0%,transparent 60%);
+      pointer-events: none;
+    }
+    .hero-glow-blue {
+      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      bottom: -100px; right: -100px;
+      background: radial-gradient(circle,rgba(59,130,246,0.06) 0%,transparent 60%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 860px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px; border-radius: var(--radius-pill);
+      background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.2);
+      font-size: 0.8125rem; font-weight: 600; color: var(--green-wa);
+      letter-spacing: 0.04em; margin-bottom: 32px;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green-wa); animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.5; transform:scale(0.7); }
+    }
+    .hero-title {
+      font-size: clamp(2.25rem,6vw,4rem); font-weight: 900;
+      line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px;
+      background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-title .accent {
+      background: linear-gradient(135deg,#25D366 0%,#3B82F6 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem,2vw,1.1875rem); color: var(--text-secondary);
+      line-height: 1.7; max-width: 640px; margin: 0 auto 40px; font-weight: 400;
+    }
+    .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .wa-icon-svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+    /* Architecture flow */
+    .hero-arch {
+      margin-top: 64px; padding: 28px 32px;
+      background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card); max-width: 520px; margin-left: auto; margin-right: auto; text-align: left;
+    }
+    .hero-arch h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 20px; text-align: center;
+    }
+    .arch-flow { display: flex; flex-direction: column; align-items: center; }
+    .arch-node {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 20px; background: var(--bg-card);
+      border: 1px solid var(--border-glass); border-radius: 10px;
+      width: 100%; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);
+    }
+    .arch-node.highlight {
+      background: linear-gradient(135deg,rgba(37,211,102,0.1) 0%,rgba(59,130,246,0.08) 100%);
+      border-color: rgba(37,211,102,0.3); color: var(--text-primary); font-weight: 600;
+    }
+    .arch-node .node-icon {
+      width: 28px; height: 28px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0; background: var(--glass-bg);
+    }
+    .arch-arrow {
+      width: 2px; height: 20px;
+      background: linear-gradient(to bottom,var(--border-glass),rgba(37,211,102,0.3));
+      position: relative;
+    }
+    .arch-arrow::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 4px solid transparent; border-right: 4px solid transparent;
+      border-top: 5px solid rgba(37,211,102,0.4);
+    }
+
+    /* ============================================================
+       INTRODUCTION
+    ============================================================ */
+    #introduction { background: linear-gradient(180deg,var(--bg-base) 0%,var(--bg-surface) 100%); }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .wa-bubble-stack { display: flex; flex-direction: column; gap: 12px; }
+    .wa-bubble {
+      padding: 14px 18px; border-radius: 16px;
+      font-size: 0.875rem; line-height: 1.5; max-width: 85%;
+    }
+    .wa-bubble.incoming {
+      background: linear-gradient(135deg,#1e2a1e,#0f1f0f);
+      border: 1px solid rgba(37,211,102,0.2); color: var(--text-secondary);
+      align-self: flex-start; border-radius: 4px 16px 16px 16px;
+    }
+    .wa-bubble.outgoing {
+      background: linear-gradient(135deg,#0d2444,#0a1a36);
+      border: 1px solid rgba(59,130,246,0.2); color: var(--text-primary);
+      align-self: flex-end; border-radius: 16px 4px 16px 16px; font-weight: 500;
+    }
+    .wa-bubble .bubble-tag {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .wa-bubble.incoming .bubble-tag { color: var(--green-wa); }
+    .wa-bubble.outgoing .bubble-tag { color: var(--blue-light); }
+
+    /* ============================================================
+       WHAT IS
+    ============================================================ */
+    .features-list { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 12px; }
+    .feature-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px; background: var(--glass-bg);
+      border: 1px solid var(--border-subtle); border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    .feature-item:hover { background: var(--glass-bg-hover); border-color: var(--border-glass); }
+    .check-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(37,211,102,0.12); border: 1px solid rgba(37,211,102,0.25);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+    }
+    .check-icon svg { width: 12px; height: 12px; stroke: var(--green-wa); }
+    .feature-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services { background: var(--bg-surface); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 20px; }
+    .service-card {
+      background: var(--bg-card); border: 1px solid var(--border-glass);
+      border-radius: var(--radius-card); padding: 28px;
+      transition: all 0.3s cubic-bezier(0.25,1,0.5,1);
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg,transparent,var(--green-wa),transparent);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .service-card:hover {
+      background: var(--bg-card-hover); border-color: rgba(37,211,102,0.2);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px -12px rgba(0,0,0,0.5);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:focus-within { outline: 2px solid var(--green-wa); outline-offset: 2px; }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: linear-gradient(135deg,rgba(37,211,102,0.12) 0%,rgba(37,211,102,0.04) 100%);
+      border: 1px solid rgba(37,211,102,0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; transition: all 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg,rgba(37,211,102,0.2) 0%,rgba(37,211,102,0.08) 100%);
+      border-color: rgba(37,211,102,0.35); transform: scale(1.05);
+    }
+    .service-icon svg { width: 22px; height: 22px; stroke: var(--green-wa); }
+    .service-card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); letter-spacing: -0.01em; }
+    .service-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(5,1fr); gap: 0; position: relative;
+    }
+    .steps-grid::before {
+      content: ''; position: absolute; top: 28px; left: calc(10% + 10px); right: calc(10% + 10px);
+      height: 1px; background: linear-gradient(90deg,transparent,var(--border-glass) 20%,var(--border-glass) 80%,transparent);
+    }
+    .step-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; }
+    .step-number {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--bg-base); border: 2px solid rgba(37,211,102,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--green-wa);
+      margin-bottom: 20px; position: relative; z-index: 2;
+      transition: all 0.3s ease;
+    }
+    .step-item:hover .step-number { background: rgba(37,211,102,0.1); border-color: var(--green-wa); transform: scale(1.08); }
+    .step-item h3 { font-size: 0.875rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
+    .step-item p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ============================================================
+       CLIENT OWNERSHIP
+    ============================================================ */
+    #client-ownership { background: var(--bg-surface); }
+    .ownership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .ownership-card {
+      background: linear-gradient(135deg,rgba(37,211,102,0.05) 0%,rgba(59,130,246,0.05) 100%);
+      border: 1px solid rgba(37,211,102,0.15); border-radius: var(--radius-card); padding: 32px;
+    }
+    .ownership-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 16px; color: var(--text-primary); }
+    .ownership-card p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+    .ownership-card p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       MULTI BUSINESS
+    ============================================================ */
+    .multi-biz-list { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 10px; margin-top: 28px; }
+    .multi-biz-item {
+      display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+      background: var(--glass-bg); border: 1px solid var(--border-subtle);
+      border-radius: 10px; font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;
+    }
+    .multi-biz-item .bullet {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: linear-gradient(135deg,var(--green-wa),var(--blue-primary)); flex-shrink: 0;
+    }
+
+    /* ============================================================
+       AUTOMATION vs HUMAN
+    ============================================================ */
+    #automation-vs-human { background: var(--bg-surface); }
+    .avh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .avh-box { padding: 28px; border-radius: var(--radius-card); border: 1px solid var(--border-glass); }
+    .avh-box.auto { background: linear-gradient(135deg,rgba(37,211,102,0.06),rgba(37,211,102,0.02)); border-color: rgba(37,211,102,0.15); }
+    .avh-box.human { background: linear-gradient(135deg,rgba(59,130,246,0.06),rgba(59,130,246,0.02)); border-color: rgba(59,130,246,0.15); }
+    .avh-box .avh-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+    .avh-box.auto .avh-label { color: var(--green-wa); }
+    .avh-box.human .avh-label { color: var(--blue-light); }
+    .avh-box h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); }
+    .avh-box ul { display: flex; flex-direction: column; gap: 8px; }
+    .avh-box ul li { font-size: 0.875rem; color: var(--text-secondary); padding-left: 20px; position: relative; }
+    .avh-box ul li::before { content: '-'; position: absolute; left: 0; color: var(--text-muted); }
+
+    /* ============================================================
+       PRIVACY / SECURITY
+    ============================================================ */
+    #privacy-security { background: var(--bg-base); }
+    .policy-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .policy-tab {
+      padding: 10px 22px; border-radius: var(--radius-pill); font-size: 0.875rem; font-weight: 600;
+      border: 1px solid var(--border-glass); background: transparent; color: var(--text-muted);
+      cursor: pointer; transition: all 0.2s ease; font-family: var(--font-main);
+    }
+    .policy-tab:hover { color: var(--text-secondary); }
+    .policy-tab.active { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.35); color: var(--green-wa); }
+    .policy-tab:focus-visible { outline: 2px solid var(--green-wa); outline-offset: 3px; }
+    .policy-panel { display: none; }
+    .policy-panel.active { display: block; }
+    .policy-box {
+      background: var(--bg-card); border: 1px solid var(--border-glass);
+      border-radius: var(--radius-card); padding: 32px;
+    }
+    .policy-box h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 16px; color: var(--text-primary); }
+    .policy-box p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px; }
+    .policy-box p:last-child { margin-bottom: 0; }
+    .security-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .security-chip {
+      display: flex; align-items: center; gap: 8px; padding: 8px 16px;
+      background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2);
+      border-radius: var(--radius-pill); font-size: 0.8125rem; font-weight: 600; color: var(--blue-light);
+    }
+    .security-chip svg { width: 14px; height: 14px; stroke: var(--blue-light); }
+
+    /* ============================================================
+       PLATFORM COMPLIANCE
+    ============================================================ */
+    #platform-compliance { background: var(--bg-surface); }
+    .compliance-box {
+      background: linear-gradient(135deg,rgba(59,130,246,0.06) 0%,rgba(37,211,102,0.04) 100%);
+      border: 1px solid rgba(59,130,246,0.18); border-radius: var(--radius-card); padding: 40px;
+    }
+    .compliance-box p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px; }
+    .compliance-box p:last-child { margin-bottom: 0; }
+    .compliance-note {
+      margin-top: 28px; padding: 16px 20px;
+      background: rgba(59,130,246,0.06); border-left: 3px solid var(--blue-primary);
+      border-radius: 0 8px 8px 0; font-size: 0.875rem; color: var(--text-secondary);
+    }
+
+    /* ============================================================
+       CLIENT RESPONSIBILITIES
+    ============================================================ */
+    #client-responsibilities { background: var(--bg-base); }
+    .responsibility-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 14px; }
+    .responsibility-item { display: flex; gap: 12px; padding: 16px; background: var(--glass-bg); border: 1px solid var(--border-subtle); border-radius: 14px; }
+    .responsibility-item .num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--text-muted); width: 20px; flex-shrink: 0; margin-top: 2px; }
+    .responsibility-item p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact { background: var(--bg-surface); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-info h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; color: var(--text-primary); }
+    .contact-info .tagline { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 32px; }
+    .contact-detail { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+    .detail-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--glass-bg); border: 1px solid var(--border-glass);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .detail-icon svg { width: 18px; height: 18px; stroke: var(--blue-light); }
+    .detail-text { display: flex; flex-direction: column; gap: 2px; }
+    .detail-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .detail-value { font-size: 0.9375rem; color: var(--text-primary); line-height: 1.5; }
+    .detail-value a { color: var(--blue-light); transition: color 0.2s; }
+    .detail-value a:hover { color: var(--text-primary); }
+    .contact-form-box { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-card); padding: 32px; }
+    .contact-form-box h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary); }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 0.04em; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 12px 16px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass);
+      border-radius: 10px; color: var(--text-primary); font-size: 0.9375rem;
+      font-family: var(--font-main); transition: border-color 0.2s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none; border-color: rgba(37,211,102,0.4); background: rgba(37,211,102,0.04);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-muted); }
+    .form-group select option { background: var(--bg-card); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 12px; line-height: 1.55; }
+    .form-note a { color: var(--blue-light); }
+
+    /* ============================================================
+       NOTICE BANNER
+    ============================================================ */
+    .notice-banner {
+      background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.18);
+      border-radius: 12px; padding: 16px 20px;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .notice-banner svg { width: 18px; height: 18px; stroke: var(--blue-light); flex-shrink: 0; margin-top: 2px; }
+    .notice-banner p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer { background: var(--bg-base); border-top: 1px solid var(--border-glass); padding: 48px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .brand-name { font-size: 1.1875rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px; letter-spacing: -0.01em; }
+    .footer-brand .brand-tagline { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 20px; }
+    .footer-brand p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
+    .footer-col h4 { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.9rem; color: var(--text-secondary); transition: color 0.2s ease; }
+    .footer-col ul li a:hover { color: var(--text-primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--border-subtle); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.8125rem; color: var(--text-muted); }
+    .footer-trademark { font-size: 0.75rem; color: var(--text-muted); font-style: italic; }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease,transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .steps-grid { grid-template-columns: repeat(3,1fr); gap: 28px; }
+      .steps-grid::before { display: none; }
+    }
+    @media (max-width: 900px) {
+      section { padding: 72px 0; }
+      .intro-grid, .ownership-grid, .contact-grid, .avh-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 56px 0; }
+      .nav-links-desktop { display: none; }
+      .hamburger { display: flex; }
+      .nav-cta .btn { display: none; }
+      .hero-cta-group { flex-direction: column; align-items: center; }
+      .hero-cta-group .btn { width: 100%; max-width: 320px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .policy-tabs { flex-direction: column; }
+      .services-grid { grid-template-columns: 1fr; }
+      .multi-biz-list { grid-template-columns: 1fr; }
+      .avh-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAV -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://emotetechnology.in/" class="nav-logo" aria-label="Emote Technology homepage">
+        <img src="https://emotetechnology.in/logo.png" alt="Emote Technology logo" width="30" height="30" onerror="this.style.display='none'" />
+        <span class="nav-logo-text">Emote Technology</span>
+      </a>
+      <div class="nav-links-desktop" role="menubar">
+        <a href="https://emotetechnology.in/" role="menuitem">Home</a>
+        <a href="https://emotetechnology.in/whatsapp-business-automation" role="menuitem" class="active" aria-current="page">WhatsApp Automation</a>
+        <a href="#how-it-works" role="menuitem">How It Works</a>
+        <a href="#services" role="menuitem">Features</a>
+        <a href="#privacy-security" role="menuitem">Privacy &amp; Security</a>
+        <a href="#contact" role="menuitem">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary" id="nav-cta-btn">
+          <svg class="wa-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Talk to Us
+        </a>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-nav" role="menu">
+      <a href="https://emotetechnology.in/" role="menuitem">Home</a>
+      <a href="https://emotetechnology.in/whatsapp-business-automation" role="menuitem">WhatsApp Automation</a>
+      <a href="#how-it-works" role="menuitem">How It Works</a>
+      <a href="#services" role="menuitem">Features</a>
+      <a href="#privacy-security" role="menuitem">Privacy &amp; Security</a>
+      <a href="#contact" role="menuitem">Contact</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-glow-blue" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="dot" aria-hidden="true"></span>
+            WhatsApp Business Automation
+          </div>
+          <h1 id="hero-heading" class="hero-title">
+            WhatsApp Business Automation<br />
+            <span class="accent">for Modern Businesses</span>
+          </h1>
+          <p class="hero-subtitle">
+            Automate customer communication, support, notifications and business messaging through WhatsApp Business solutions designed for growing businesses.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#contact" id="hero-cta-primary" class="btn btn-primary">
+              <svg class="wa-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Talk to Emote Technology
+            </a>
+            <a href="#how-it-works" id="hero-cta-secondary" class="btn btn-secondary">
+              Learn How It Works
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <!-- Architecture diagram -->
+          <div class="hero-arch reveal" aria-label="Service architecture flow">
+            <h4>Service Architecture</h4>
+            <div class="arch-flow">
+              <div class="arch-node"><span class="node-icon" aria-hidden="true">🏢</span><span>Client Business</span></div>
+              <div class="arch-arrow" aria-hidden="true"></div>
+              <div class="arch-node"><span class="node-icon" aria-hidden="true">📁</span><span>Client's Meta Business Portfolio</span></div>
+              <div class="arch-arrow" aria-hidden="true"></div>
+              <div class="arch-node"><span class="node-icon" aria-hidden="true">💬</span><span>Client's WhatsApp Business Account</span></div>
+              <div class="arch-arrow" aria-hidden="true"></div>
+              <div class="arch-node"><span class="node-icon" aria-hidden="true">📱</span><span>Client's WhatsApp Phone Number</span></div>
+              <div class="arch-arrow" aria-hidden="true"></div>
+              <div class="arch-node"><span class="node-icon" aria-hidden="true">⚡</span><span>WhatsApp Business Platform (Meta)</span></div>
+              <div class="arch-arrow" aria-hidden="true"></div>
+              <div class="arch-node highlight"><span class="node-icon" aria-hidden="true">🔧</span><span>Emote Technology Automation Platform</span></div>
+              <div class="arch-arrow" aria-hidden="true"></div>
+              <div class="arch-node"><span class="node-icon" aria-hidden="true">👥</span><span>Client's Customer Conversations</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section id="introduction" aria-labelledby="intro-heading">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-text">
+            <div class="section-divider" aria-hidden="true"></div>
+            <span class="label-tag">About the Service</span>
+            <h2 id="intro-heading" class="section-heading" style="margin-top:16px;margin-bottom:20px;">WhatsApp Automation Technology for Your Business</h2>
+            <p class="section-subtext" style="margin-bottom:20px;">Emote Technology provides technology solutions that help businesses streamline customer communication through WhatsApp Business automation.</p>
+            <p class="section-subtext" style="margin-bottom:20px;">Our solutions are designed to help businesses manage customer interactions, automate repetitive communication, send relevant notifications, support lead engagement and improve response workflows.</p>
+            <p class="section-subtext">Each client business can use its own business identity, WhatsApp Business Account and business phone number while using the automation capabilities provided by Emote Technology.</p>
+          </div>
+          <div class="intro-visual" aria-hidden="true">
+            <div class="wa-bubble-stack">
+              <div class="wa-bubble incoming"><div class="bubble-tag">Customer</div>Hi, I'd like to enquire about your services. What options are available?</div>
+              <div class="wa-bubble outgoing"><div class="bubble-tag">Automated Response</div>Hello! Thanks for reaching out. Here are our service packages: [1] Basic [2] Standard [3] Enterprise. Which would you like to know more about?</div>
+              <div class="wa-bubble incoming"><div class="bubble-tag">Customer</div>Tell me about option 2 – Standard.</div>
+              <div class="wa-bubble outgoing"><div class="bubble-tag">Automated Response</div>Great choice! The Standard package includes... Would you like to speak with our team for a detailed consultation?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS AUTOMATION -->
+    <section id="what-is" aria-labelledby="what-is-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag green">What Is WhatsApp Automation</span>
+          <h2 id="what-is-heading" class="section-heading">What WhatsApp Business Automation Can Do for Your Business</h2>
+          <p class="section-subtext">WhatsApp Business automation enables businesses to manage customer communication more efficiently through structured, automated workflows — reducing manual effort and improving response times.</p>
+        </div>
+        <div class="features-list" role="list">
+          <div class="feature-item reveal" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Respond to customer enquiries automatically with structured, pre-configured answers</p></div>
+          <div class="feature-item reveal reveal-delay-1" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Automate frequently asked questions to save time for your team</p></div>
+          <div class="feature-item reveal reveal-delay-2" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Send transactional and business notifications where permitted by platform policies</p></div>
+          <div class="feature-item reveal" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Manage and structure customer communication workflows end-to-end</p></div>
+          <div class="feature-item reveal reveal-delay-1" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Qualify leads by routing enquiries through structured conversational flows</p></div>
+          <div class="feature-item reveal reveal-delay-2" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Route conversations to the right team or department automatically</p></div>
+          <div class="feature-item reveal" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Provide automated support for common customer service scenarios</p></div>
+          <div class="feature-item reveal reveal-delay-1" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Send appointment, order and status updates where applicable to your business</p></div>
+          <div class="feature-item reveal reveal-delay-2" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Improve response times and reduce repetitive manual communication tasks</p></div>
+          <div class="feature-item reveal" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Maintain structured, organised customer communication at scale</p></div>
+          <div class="feature-item reveal reveal-delay-1" role="listitem"><div class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p>Escalate complex conversations to human support agents when needed</p></div>
+        </div>
+        <div class="notice-banner reveal" style="margin-top:32px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p>Feature availability is subject to applicable WhatsApp Business Platform policies, Meta's requirements, and each client's specific business eligibility. Emote Technology will advise clients on applicable configurations during onboarding.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag">Services &amp; Features</span>
+          <h2 id="services-heading" class="section-heading">What Emote Technology Provides</h2>
+          <p class="section-subtext">Emote Technology provides technology and automation services that help businesses manage WhatsApp-based customer communication. Below is an overview of the core service areas.</p>
+        </div>
+        <div class="services-grid" role="list">
+          <div class="service-card reveal" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <h3>Automated Customer Support</h3>
+            <p>Automate common customer questions and provide structured responses while allowing businesses to manage conversations efficiently.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-1" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 4-4 4 4"/><path d="M12 17v4"/></svg></div>
+            <h3>WhatsApp Chatbots</h3>
+            <p>Build conversational workflows for customer enquiries, lead qualification and frequently requested information.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-2" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+            <h3>Business Notifications</h3>
+            <p>Help businesses send relevant customer notifications through supported WhatsApp Business messaging workflows, subject to applicable Meta policies.</p>
+          </div>
+          <div class="service-card reveal" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Lead Management</h3>
+            <p>Capture and organise customer enquiries and automate initial communication and lead qualification workflows.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-1" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></div>
+            <h3>Customer Communication</h3>
+            <p>Help businesses maintain structured and timely communication with their customers through WhatsApp.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-2" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/></svg></div>
+            <h3>Workflow Automation</h3>
+            <p>Connect WhatsApp conversations with business workflows to reduce repetitive manual tasks and improve operational efficiency.</p>
+          </div>
+          <div class="service-card reveal" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></div>
+            <h3>Support Escalation</h3>
+            <p>Allow automated workflows to route conversations to human support when automated responses are insufficient or when a customer requires personal attention.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-1" role="listitem" tabindex="0">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <h3>Business Messaging</h3>
+            <p>Provide technology for structured WhatsApp Business communication based on each client's business requirements and applicable platform policies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag">Process</span>
+          <h2 id="how-heading" class="section-heading">How the Service Works</h2>
+          <p class="section-subtext">A clear, structured onboarding process ensures each business can start using WhatsApp automation efficiently and correctly.</p>
+        </div>
+        <div class="steps-grid" role="list">
+          <div class="step-item reveal" role="listitem">
+            <div class="step-number" aria-label="Step 1">01</div>
+            <h3>Business Registration</h3>
+            <p>The client business provides its business information and completes the required onboarding process with Emote Technology.</p>
+          </div>
+          <div class="step-item reveal reveal-delay-1" role="listitem">
+            <div class="step-number" aria-label="Step 2">02</div>
+            <h3>Connect WhatsApp Business</h3>
+            <p>The client connects its own WhatsApp Business assets through the applicable Meta onboarding process, maintaining its own business identity.</p>
+          </div>
+          <div class="step-item reveal reveal-delay-2" role="listitem">
+            <div class="step-number" aria-label="Step 3">03</div>
+            <h3>Configure Automation</h3>
+            <p>Emote Technology configures the required automation workflows, responses and business messaging logic based on each client's requirements.</p>
+          </div>
+          <div class="step-item reveal reveal-delay-3" role="listitem">
+            <div class="step-number" aria-label="Step 4">04</div>
+            <h3>Test &amp; Launch</h3>
+            <p>The full configuration is tested thoroughly before the business begins using the automation service with real customers.</p>
+          </div>
+          <div class="step-item reveal reveal-delay-4" role="listitem">
+            <div class="step-number" aria-label="Step 5">05</div>
+            <h3>Manage Communication</h3>
+            <p>The client uses its WhatsApp Business presence to communicate with customers through the configured automation workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT OWNERSHIP -->
+    <section id="client-ownership" aria-labelledby="ownership-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag green">Client Identity</span>
+          <h2 id="ownership-heading" class="section-heading">Your Business. Your WhatsApp Identity.</h2>
+          <p class="section-subtext">Emote Technology's service model is designed to respect and preserve each client's individual business identity and WhatsApp Business assets.</p>
+        </div>
+        <div class="ownership-grid">
+          <div class="ownership-card reveal">
+            <h3>Client Business Identity</h3>
+            <p>Each client business maintains its own business identity and WhatsApp Business assets. Emote Technology does not require all clients to use a single shared WhatsApp number.</p>
+            <p>Depending on the onboarding configuration, each client can connect its own eligible WhatsApp Business Account and phone number through the applicable Meta process.</p>
+            <p>The client's WhatsApp Business assets remain associated with the client's business environment. Emote Technology provides the technology and automation service required to operate the configured communication workflows.</p>
+          </div>
+          <div class="ownership-card reveal reveal-delay-2">
+            <h3>What Emote Technology Provides</h3>
+            <p>Emote Technology acts as a technology and automation provider. The platform and automation layer sit between the client's WhatsApp Business Account and the customer conversations — enabling efficient, structured communication.</p>
+            <p>Emote Technology does not represent itself as a business in customer conversations. The client's own business name, branding and contact information remain visible to customers.</p>
+            <p>Clients retain responsibility for their WhatsApp Business Account, their business identity and their compliance with applicable platform policies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTI-BUSINESS -->
+    <section id="multi-business" aria-labelledby="multi-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag">Technology Model</span>
+          <h2 id="multi-heading" class="section-heading">Built for Multiple Businesses</h2>
+          <p class="section-subtext">Emote Technology's technology-provider model is designed to support automation services for multiple independent businesses — without combining their identities or customer communication.</p>
+        </div>
+        <div class="compliance-box reveal" style="background:linear-gradient(135deg,rgba(37,211,102,0.05),rgba(59,130,246,0.04));border-color:rgba(37,211,102,0.15);">
+          <p>Each client business can have its own dedicated configuration, separate from other clients of Emote Technology. This allows businesses to use WhatsApp automation without combining the identities or customer communication of different businesses.</p>
+          <div class="multi-biz-list" role="list" aria-label="Each client business can have its own">
+            <div class="multi-biz-item reveal" role="listitem"><span class="bullet" aria-hidden="true"></span><span>Business identity</span></div>
+            <div class="multi-biz-item reveal reveal-delay-1" role="listitem"><span class="bullet" aria-hidden="true"></span><span>Meta Business Portfolio</span></div>
+            <div class="multi-biz-item reveal reveal-delay-2" role="listitem"><span class="bullet" aria-hidden="true"></span><span>WhatsApp Business Account</span></div>
+            <div class="multi-biz-item reveal" role="listitem"><span class="bullet" aria-hidden="true"></span><span>WhatsApp phone number</span></div>
+            <div class="multi-biz-item reveal reveal-delay-1" role="listitem"><span class="bullet" aria-hidden="true"></span><span>Customer conversations</span></div>
+            <div class="multi-biz-item reveal reveal-delay-2" role="listitem"><span class="bullet" aria-hidden="true"></span><span>Messaging configuration</span></div>
+            <div class="multi-biz-item reveal" role="listitem"><span class="bullet" aria-hidden="true"></span><span>Automation workflows</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTOMATION VS HUMAN -->
+    <section id="automation-vs-human" aria-labelledby="avh-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag">Support Model</span>
+          <h2 id="avh-heading" class="section-heading">Automation and Human Support — Together</h2>
+          <p class="section-subtext">Automation can handle repetitive communication, but businesses may configure workflows to escalate conversations to human support when automated responses are insufficient.</p>
+        </div>
+        <div class="avh-grid">
+          <div class="avh-box auto reveal">
+            <div class="avh-label">Automated Handling</div>
+            <h3>What Automation Manages</h3>
+            <ul>
+              <li>Frequently asked questions</li>
+              <li>Initial greeting and menu responses</li>
+              <li>Lead qualification questions</li>
+              <li>Status update notifications</li>
+              <li>Appointment confirmations</li>
+              <li>Order and delivery updates</li>
+              <li>Structured information delivery</li>
+            </ul>
+          </div>
+          <div class="avh-box human reveal reveal-delay-2">
+            <div class="avh-label">Human Escalation</div>
+            <h3>When Human Agents Step In</h3>
+            <ul>
+              <li>Complex enquiries requiring judgement</li>
+              <li>Complaints and sensitive situations</li>
+              <li>Negotiations and custom requests</li>
+              <li>Situations where automation cannot resolve</li>
+              <li>High-priority customer interactions</li>
+              <li>Cases flagged for personal follow-up</li>
+              <li>Any conversation the business prefers to handle personally</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY & SECURITY -->
+    <section id="privacy-security" aria-labelledby="privacy-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag">Privacy &amp; Security</span>
+          <h2 id="privacy-heading" class="section-heading">Data Handling &amp; Security</h2>
+          <p class="section-subtext">Emote Technology takes the handling of business and customer information seriously. The following explains how information is used and protected.</p>
+        </div>
+        <div class="policy-tabs" role="tablist" aria-label="Privacy and security topics">
+          <button class="policy-tab active" id="tab-data" role="tab" aria-selected="true" aria-controls="panel-data">Data Handling</button>
+          <button class="policy-tab" id="tab-customer" role="tab" aria-selected="false" aria-controls="panel-customer">Customer Data</button>
+          <button class="policy-tab" id="tab-security" role="tab" aria-selected="false" aria-controls="panel-security">Security</button>
+        </div>
+        <div class="policy-panel active" id="panel-data" role="tabpanel" aria-labelledby="tab-data">
+          <div class="policy-box reveal">
+            <h3>How Emote Technology Handles Data</h3>
+            <p>Emote Technology uses platform and customer information only as necessary to provide the requested technology and automation services.</p>
+            <p>Depending on the service configuration, information may include business account identifiers, WhatsApp-related account information, customer communication data and information required to operate automation workflows.</p>
+            <p>Access to information is limited to what is necessary for providing, maintaining and supporting the service.</p>
+            <p>Emote Technology does not use client information for unrelated purposes.</p>
+          </div>
+        </div>
+        <div class="policy-panel" id="panel-customer" role="tabpanel" aria-labelledby="tab-customer">
+          <div class="policy-box reveal">
+            <h3>Customer Data &amp; Client Responsibilities</h3>
+            <p>Client businesses may process customer information through WhatsApp as part of their customer communication activities.</p>
+            <p>Client businesses remain responsible for ensuring that their customer communication and data processing practices comply with applicable laws, regulations, WhatsApp Business policies and their own privacy obligations.</p>
+            <p>Emote Technology provides technology services to support these workflows and processes information as necessary to provide the requested service.</p>
+            <p>Businesses using the service should ensure that their customers are appropriately informed about the use of WhatsApp for business communication, as required by applicable regulations and platform policies.</p>
+          </div>
+        </div>
+        <div class="policy-panel" id="panel-security" role="tabpanel" aria-labelledby="tab-security">
+          <div class="policy-box reveal">
+            <h3>Security Measures</h3>
+            <p>Emote Technology aims to protect business and customer information through appropriate technical and organisational measures.</p>
+            <p>These measures are intended to limit unauthorised access, maintain the integrity of configured services and support the secure operation of automation workflows.</p>
+            <div class="security-chips" role="list" aria-label="Security measures applied">
+              <div class="security-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Access Control</div>
+              <div class="security-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Authentication</div>
+              <div class="security-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Limited Access</div>
+              <div class="security-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Monitoring &amp; Maintenance</div>
+              <div class="security-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>Credential Protection</div>
+              <div class="security-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2H3v16h5v4l4-4h5l4-4V2z"/></svg>Secure Communication</div>
+            </div>
+            <div class="notice-banner" style="margin-top:24px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              <p>Emote Technology does not claim specific certifications (such as ISO 27001, SOC 2, or GDPR certification) at this stage. Security measures are implemented as appropriate for the current scale and scope of the service.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM COMPLIANCE -->
+    <section id="platform-compliance" aria-labelledby="compliance-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag">Platform Policies</span>
+          <h2 id="compliance-heading" class="section-heading">Platform Compliance</h2>
+        </div>
+        <div class="compliance-box reveal">
+          <p>WhatsApp Business messaging services are provided subject to the applicable policies, terms, technical requirements and eligibility criteria of the WhatsApp Business Platform and Meta.</p>
+          <p>Businesses using the service are responsible for using WhatsApp Business messaging appropriately and complying with applicable laws and platform policies.</p>
+          <p>Emote Technology intends to configure and operate automation workflows in accordance with applicable platform requirements.</p>
+          <div class="compliance-note" role="note">
+            <strong>Note:</strong> WhatsApp and Meta are trademarks of their respective owners. Emote Technology is currently going through the relevant Meta Tech Provider verification process and does not represent itself as an officially approved or certified Meta partner at this stage.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT RESPONSIBILITIES -->
+    <section id="client-responsibilities" aria-labelledby="responsibilities-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag">Client Obligations</span>
+          <h2 id="responsibilities-heading" class="section-heading">Client Responsibilities</h2>
+          <p class="section-subtext">Businesses using Emote Technology's WhatsApp automation services are responsible for the following:</p>
+        </div>
+        <div class="responsibility-grid" role="list">
+          <div class="responsibility-item reveal" role="listitem"><span class="num" aria-hidden="true">01</span><p>Providing accurate and complete business information during onboarding</p></div>
+          <div class="responsibility-item reveal reveal-delay-1" role="listitem"><span class="num" aria-hidden="true">02</span><p>Using legitimate business information and not misrepresenting business identity</p></div>
+          <div class="responsibility-item reveal reveal-delay-2" role="listitem"><span class="num" aria-hidden="true">03</span><p>Obtaining appropriate customer consent where required by applicable law or platform policy</p></div>
+          <div class="responsibility-item reveal" role="listitem"><span class="num" aria-hidden="true">04</span><p>Following applicable messaging rules, including restrictions on promotional or marketing messages</p></div>
+          <div class="responsibility-item reveal reveal-delay-1" role="listitem"><span class="num" aria-hidden="true">05</span><p>Complying with WhatsApp Business Platform policies and Meta's applicable terms of service</p></div>
+          <div class="responsibility-item reveal reveal-delay-2" role="listitem"><span class="num" aria-hidden="true">06</span><p>Maintaining accurate and up-to-date business information on the WhatsApp Business Platform</p></div>
+          <div class="responsibility-item reveal" role="listitem"><span class="num" aria-hidden="true">07</span><p>Maintaining access to their own business accounts and credentials</p></div>
+          <div class="responsibility-item reveal reveal-delay-1" role="listitem"><span class="num" aria-hidden="true">08</span><p>Providing approved message content for template messages as required by the platform</p></div>
+          <div class="responsibility-item reveal reveal-delay-2" role="listitem"><span class="num" aria-hidden="true">09</span><p>Handling customer data lawfully and in accordance with applicable privacy regulations</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label-tag green">Get in Touch</span>
+          <h2 id="contact-heading" class="section-heading">Discuss WhatsApp Automation for Your Business</h2>
+          <p class="section-subtext">Interested in using WhatsApp Business automation for your business? Contact Emote Technology to discuss your requirements.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Emote Technology</h3>
+            <p class="tagline">WhatsApp Business Automation Solutions</p>
+            <div class="contact-detail">
+              <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="detail-text">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Channu Wala Road,<br />Bagha Purana, Punjab 142038,<br />India</span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="detail-text">
+                <span class="detail-label">Email</span>
+                <span class="detail-value"><a href="mailto:info@emotetechnology.in">info@emotetechnology.in</a></span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="detail-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+              <div class="detail-text">
+                <span class="detail-label">Website</span>
+                <span class="detail-value"><a href="https://emotetechnology.in/" target="_blank" rel="noopener noreferrer">emotetechnology.in</a></span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-box reveal reveal-delay-2">
+            <h3>Send an Enquiry</h3>
+            <form id="contact-form" novalidate aria-label="WhatsApp automation enquiry form">
+              <div class="form-group">
+                <label for="contact-name">Business Name</label>
+                <input type="text" id="contact-name" name="business_name" placeholder="Your business name" autocomplete="organization" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="contact-interest">Area of Interest</label>
+                <select id="contact-interest" name="interest">
+                  <option value="">Select a service area...</option>
+                  <option value="chatbot">WhatsApp Chatbot</option>
+                  <option value="support">Automated Customer Support</option>
+                  <option value="notifications">Business Notifications</option>
+                  <option value="leads">Lead Management</option>
+                  <option value="workflow">Workflow Automation</option>
+                  <option value="general">General Enquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" placeholder="Tell us about your business and what you're looking to automate..." rows="4"></textarea>
+              </div>
+              <a href="mailto:info@emotetechnology.in?subject=WhatsApp%20Automation%20Enquiry" id="contact-submit-link" class="btn btn-primary" style="width:100%;justify-content:center;">
+                <svg class="wa-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Discuss WhatsApp Automation
+              </a>
+              <p class="form-note">Your enquiry will be sent to <a href="mailto:info@emotetechnology.in">info@emotetechnology.in</a>. Emote Technology will respond to discuss your requirements.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="brand-name">Emote Technology</div>
+          <div class="brand-tagline">WhatsApp Business Automation Solutions</div>
+          <p>Emote Technology provides technology solutions including WhatsApp Business automation services for businesses. Registered in Punjab, India.</p>
+          <p style="margin-top:12px;font-size:0.8125rem;color:var(--text-muted);">Channu Wala Road, Bagha Purana,<br />Punjab 142038, India</p>
+          <p style="margin-top:10px;"><a href="mailto:info@emotetechnology.in" style="color:var(--text-muted);font-size:0.875rem;transition:color 0.2s;">info@emotetechnology.in</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="https://emotetechnology.in/">Home</a></li>
+            <li><a href="https://emotetechnology.in/whatsapp-business-automation" aria-current="page">WhatsApp Automation</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#services">Features</a></li>
+            <li><a href="#privacy-security">Privacy &amp; Security</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <!-- VERIFY LIVE LEGAL URL BEFORE DEPLOYMENT: Confirm each URL below is live and correct before publishing -->
+            <li><a href="https://emotetechnology.in/privacy-policy">Privacy Policy</a></li><!-- VERIFY LIVE LEGAL URL BEFORE DEPLOYMENT -->
+            <li><a href="https://emotetechnology.in/terms-of-service">Terms of Service</a></li><!-- VERIFY LIVE LEGAL URL BEFORE DEPLOYMENT -->
+            <li><a href="https://emotetechnology.in/data-deletion">Data Deletion</a></li><!-- VERIFY LIVE LEGAL URL BEFORE DEPLOYMENT -->
+            <li><a href="mailto:info@emotetechnology.in">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> Emote Technology. All rights reserved.</p>
+        <p class="footer-trademark">WhatsApp and Meta are trademarks of their respective owners. Emote Technology is not affiliated with, endorsed by, or officially approved by Meta Platforms, Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => { navbar.classList.toggle('scrolled', window.scrollY > 60); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Hamburger
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Policy tabs
+    const tabs = document.querySelectorAll('.policy-tab');
+    const panels = document.querySelectorAll('.policy-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('aria-controls');
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected','true');
+        document.getElementById(targetId).classList.add('active');
+      });
+      tab.addEventListener('keydown', (e) => {
+        const tabArr = Array.from(tabs);
+        const idx = tabArr.indexOf(tab);
+        if (e.key === 'ArrowRight') { tabArr[(idx+1)%tabArr.length].focus(); tabArr[(idx+1)%tabArr.length].click(); }
+        if (e.key === 'ArrowLeft')  { tabArr[(idx-1+tabArr.length)%tabArr.length].focus(); tabArr[(idx-1+tabArr.length)%tabArr.length].click(); }
+      });
+    });
+
+    // Scroll reveal
+    const ro = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+    // Active nav on scroll
+    const navLinks = document.querySelectorAll('.nav-links-desktop a');
+    const sectionObserver = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + entry.target.id) link.classList.add('active');
+          });
+        }
+      }),
+      { rootMargin: '-30% 0px -60% 0px' }
+    );
+    document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>
